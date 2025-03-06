@@ -19,9 +19,28 @@
         </nav>
     </header>
     <main>
-        <br>
-        FEEDBACK FORM<br>
+        <hr>
+        <h2>Thank you!</h2>
+        <p>
+            We are very delighted that you wish to contribute to the constant improvement of our website.<br>
+            You can do so by filling in the form below.
+        </p>
+        <form action="#SUBMIT FEEDBACK" method="post">
+            <label for="#USER EMAIL">Your Email Address:</label><br>
+            <input type="email" id="user_email" name="user_email"><br>
+            
+            <label for="feedback_type">Feedback Type:</label><br>
+            <select id="feedback_type" name="feedback_type">
+                <option value="general">General Feedback</option>
+                <option value="bug">Bug Report</option>
+                <option value="feature">Feature Request</option>
+            </select><br>
+            
+            <label for="feedback_text">Your Message:</label><br>
+            <textarea id="feedback_text" name="feedback_text" rows="6" cols="40" required placeholder="How can we improve?"></textarea><br>
+        </form>
         &nbsp;
+        <hr>
     </main>
     <footer>
         <nav>
