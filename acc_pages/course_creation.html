@@ -19,15 +19,60 @@
         </nav>
     </header>
     <main>
-        <br>
-        COURSE CREATION<br>
-        &nbsp;
+        <hr>
+        <h1>Create a New Course</h1>
+        <p>Answer a few quick questions, and our AI will generate a custom learning path for you.</p>
+        <section>
+            <h2>What do you want to learn?</h2>
+            <label for="course_title">Course Title:</label><br>
+            <input type="text" id="course_title" name="course_title" placeholder="e.g., Python Programming, World History" required><br>
+        </section>
+        <hr>
+        <section>
+            <h2>Tell us about your learning preferences</h2>
+            <form action="#" method="post">
+                <label for="learning_goal">What is your goal?</label><br>
+                <select id="learning_goal" name="learning_goal">
+                    <option value="career">Career Advancement</option>
+                    <option value="hobby">Personal Interest</option>
+                    <option value="exam">Exam Preparation</option>
+                </select><br>
+
+                <label for="learning_style">Preferred Learning Style:</label><br>
+                <select id="learning_style" name="learning_style">
+                    <option value="visual">Visual (Videos, Images)</option>
+                    <option value="reading">Reading & Writing</option>
+                    <option value="interactive">Interactive (Exercises, Quizzes)</option>
+                </select><br>
+
+                <label for="study_hours">How many hours per week do you plan to study?</label><br>
+                <input type="number" id="study_hours" name="study_hours" min="1" max="50" required><br>
+                <hr>
+               
+                <h2>Placement Test (Coming Soon)</h2>
+                <p>Our AI will assess your current knowledge level and create a customized learning path.</p>
+                <p><em>(Feature not yet implemented)</em></p>
+                <hr>
+
+                <h2>Your AI-Generated Learning Plan</h2>
+                <p><em>Once AI is implemented, this section will show a dynamically created course outline.</em></p>
+
+                <ul>
+                    <li><strong>Week 1:</strong> Introduction to [Course Topic]</li>
+                    <li><strong>Week 2-3:</strong> Fundamentals & Core Concepts</li>
+                    <li><strong>Week 4-5:</strong> Hands-on Practice & Exercises</li>
+                    <li><strong>Week 6+:</strong> Advanced Topics & Final Assessment</li>
+                </ul>
+                <button type="submit">Generate Course</button>
+            </form>
+        </section>
+        <hr>
     </main>
     <footer>
         <nav>
             <a href="../info_pages/about_us.html">ABOUT US</a> |
             <a href="../info_pages/faq.html">FAQ</a> |
-            <a href="../info_pages/feedback_form.html">FEEDBACK_FORM</a> |
+            <a href="../info_pages/feedback_form.html">FEEDBACK FORM</a> |
             <a href="../info_pages/privacy_policy.html">PRIVACY POLICY</a> |
         </nav>
     </footer>

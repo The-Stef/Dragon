@@ -19,9 +19,43 @@
         </nav>
     </header>
     <main>
-        <br>
-        USER DASHBOARD<br>
-        &nbsp;
+        <hr>
+        <h1>Welcome, [USERNAME]!</h1>
+        <p>Here's a quick overview of your time spent with us so far.</p>
+        <section>
+            <img src="../assets/DefaultProfilePicture.png" alt="Profile Picture" width="150px"><br>
+            <form action="#" method="post" enctype="multipart/form-data">
+                <label for="profile_picture">Change Profile Picture:</label><br>
+                <input type="file" id="profile_picture" name="profile_picture" accept="image/*"><br>
+                <button type="submit">Upload</button>
+            </form>
+        </section>
+        <section>
+            <h2>Account Information</h2>
+            <ul>
+                <li><strong>Username:</strong> DummyUsername</li>
+                <li><strong>Email:</strong> dummy@example.com</li>
+                <li><strong>Account Type:</strong> Student</li>
+                <li><strong>Member Since:</strong> January 2025</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Your Learning Stats</h2>
+            <ul>
+                <li><strong>Courses Enrolled:</strong> 5</li>
+                <li><strong>Courses Completed:</strong> 2</li>
+                <li><strong>Current Learning Streak:</strong> 7 days</li>
+            </ul>
+        </section>
+        <section>
+            <h2>Quick Actions</h2>
+            <ul>
+                <li><a href="course_creation.html">Create a New Course</a></li>
+                <li><a href="individual_course.html">Continue Your Last Course</a></li>
+                <li><a href="../ai_pages/quiz_page.html">Take a Quiz</a></li>
+            </ul>
+        </section>
+        <hr>
     </main>
     <footer>
         <nav>
