@@ -8,21 +8,30 @@
 <body>
     <header>
         <nav>
-            <a href="../index.html">HOME</a> |
-            <a href="../auth_pages/login_page.html">LOG IN</a> |
-            <a href="../auth_pages/sign_up_page.html">SIGN UP</a> |
-            <a href="../acc_pages/user_dashboard.html">PROFILE</a> |
-            <a href="../ai_pages/ai_discussion.html">AI DISCUSSION</a> |
-            <a href="../ai_pages/quiz_page.html">QUIZ PAGE</a> |
-            <a href="../acc_pages/course_creation.html">COURSE CREATION</a> |
-            <a href="../acc_pages/individual_course.html">INDIVIDUAL COURSES</a> |
+            <!-- Navigation Bar -->
+            <!-- Currently contains all of the links to access. -->
+            <!-- Links will be seperated later on, based on if they are before or after log in. -->
+            <a href="index.html">HOME</a> |
+
+            <!-- Login and Signup -->
+            <a href="auth_pages/login_page.html">LOG IN</a> |
+            <a href="auth_pages/sign_up_page.html">SIGN UP</a> |
+
+            <!-- After registration -->
+            <a href="acc_pages/user_dashboard.html">PROFILE</a> |
+            <a href="ai_pages/ai_discussion.html">AI DISCUSSION</a> |
+            <a href="ai_pages/quiz_page.html">QUIZ PAGE</a> |
+            <a href="acc_pages/course_creation.html">COURSE CREATION</a> |
+            <a href="acc_pages/individual_course.html">INDIVIDUAL COURSES</a> |
         </nav>
     </header>
     <main>
+        <!-- Login for existing users. -->
         <hr>
         <h1>Welcome Back!</h1>
         <p>Log in to continue your learning journey right where you left off.</p>
 
+        <!-- Log in with your email. -->
         <form action="#LOGIN" method="post">
             <label for="user_email">Your Email Address:</label><br>
             <input type="email" id="user_email" name="user_email" placeholder="Enter your email" required><br>
@@ -30,6 +39,7 @@
             <label for="password">Password:</label><br>
             <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
 
+            <!-- Forgot your password? -->
             <p><a href="#">Forgot your password?</a></p>
 
             <label>
@@ -43,6 +53,7 @@
     </main>
     <footer>
         <nav>
+            <!-- Footer for easy access to information. -->
             <a href="../info_pages/about_us.html">ABOUT US</a> |
             <a href="../info_pages/faq.html">FAQ</a> |
             <a href="../info_pages/feedback_form.html">FEEDBACK FORM</a> |

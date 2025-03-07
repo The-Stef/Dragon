@@ -8,24 +8,42 @@
 <body>
     <header>
         <nav>
-            <a href="../index.html">HOME</a> |
-            <a href="../auth_pages/login_page.html">LOG IN</a> |
-            <a href="../auth_pages/sign_up_page.html">SIGN UP</a> |
-            <a href="../acc_pages/user_dashboard.html">PROFILE</a> |
-            <a href="../ai_pages/ai_discussion.html">AI DISCUSSION</a> |
-            <a href="../ai_pages/quiz_page.html">QUIZ PAGE</a> |
-            <a href="../acc_pages/course_creation.html">COURSE CREATION</a> |
-            <a href="../acc_pages/individual_course.html">INDIVIDUAL COURSES</a> |
+            <!-- Navigation Bar -->
+            <!-- Currently contains all of the links to access. -->
+            <!-- Links will be seperated later on, based on if they are before or after log in. -->
+            <a href="index.html">HOME</a> |
+
+            <!-- Login and Signup -->
+            <a href="auth_pages/login_page.html">LOG IN</a> |
+            <a href="auth_pages/sign_up_page.html">SIGN UP</a> |
+
+            <!-- After registration -->
+            <a href="acc_pages/user_dashboard.html">PROFILE</a> |
+            <a href="ai_pages/ai_discussion.html">AI DISCUSSION</a> |
+            <a href="ai_pages/quiz_page.html">QUIZ PAGE</a> |
+            <a href="acc_pages/course_creation.html">COURSE CREATION</a> |
+            <a href="acc_pages/individual_course.html">INDIVIDUAL COURSES</a> |
         </nav>
     </header>
     <main>
+        <!-- This is the sign up page for users -->
         <hr>
         <h1>Create Your SpaceLearn Account</h1>
         <p>Join SpaceLearn and start your personalized learning journey today!</p>
+        
+        <!-- Form action will be updated once database is connected -->
         <form action="#SIGNUP" method="post">
-            <label for="full_name">Full Name:</label><br>
-            <input type="text" id="full_name" name="full_name" placeholder="Enter your full name" required><br>
 
+            <!-- Collecting the names seperately -->
+            <!-- This will allow us to personalize the service further -->
+            <!-- by referring the user by their first name in the future -->
+            <label for="first_name">Full Name:</label><br>
+            <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" required><br>
+
+            <label for="last_name">Full Name:</label><br>
+            <input type="text" id="last_name" name="last_name" placeholder="Enter your last name" required><br>
+
+            <!-- Other details -->
             <label for="username">Username:</label><br>
             <input type="text" id="username" name="username" placeholder="Choose a username" required><br>
 
@@ -42,16 +60,20 @@
             <label for="age">Age:</label><br>
             <input type="number" id="age" name="age" placeholder="Enter your age" min="13" required><br>
 
+            <!-- For data analytics and platform customization -->
             <label for="user_type">I am a:</label><br>
             <select id="user_type" name="user_type">
                 <option value="student">Student</option>
                 <option value="educator">Educator</option>
                 <option value="lifelong_learner">Lifelong Learner</option>
+                <option value="Other">Other</option>
             </select><br>
 
+            <!-- For data analytics and platform customization. -->
             <label for="interests">What are you interested in learning?</label><br>
             <input type="text" id="interests" name="interests" placeholder="e.g., History, AI, Design"><br>
 
+            <!-- Confirming the privacy policy. -->
             <label>
                 <input type="checkbox" name="agree_terms" required>
                 I agree to the <a href="../info_pages/privacy_policy.html">Terms & Privacy Policy</a>
@@ -63,6 +85,7 @@
     </main>
     <footer>
         <nav>
+            <!-- Footer for easy access to information. -->
             <a href="../info_pages/about_us.html">ABOUT US</a> |
             <a href="../info_pages/faq.html">FAQ</a> |
             <a href="../info_pages/feedback_form.html">FEEDBACK FORM</a> |
