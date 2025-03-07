@@ -8,21 +8,32 @@
 <body>
     <header>
         <nav>
-            <a href="../index.html">HOME</a> |
-            <a href="../auth_pages/login_page.html">LOG IN</a> |
-            <a href="../auth_pages/sign_up_page.html">SIGN UP</a> |
-            <a href="../acc_pages/user_dashboard.html">PROFILE</a> |
-            <a href="../ai_pages/ai_discussion.html">AI DISCUSSION</a> |
-            <a href="../ai_pages/quiz_page.html">QUIZ PAGE</a> |
-            <a href="../acc_pages/course_creation.html">COURSE CREATION</a> |
-            <a href="../acc_pages/individual_course.html">INDIVIDUAL COURSES</a> |
+            <!-- Navigation Bar -->
+            <!-- Currently contains all of the links to access. -->
+            <!-- Links will be seperated later on, based on if they are before or after log in. -->
+            <a href="index.html">HOME</a> |
+
+            <!-- Login and Signup -->
+            <a href="auth_pages/login_page.html">LOG IN</a> |
+            <a href="auth_pages/sign_up_page.html">SIGN UP</a> |
+
+            <!-- After registration -->
+            <a href="acc_pages/user_dashboard.html">PROFILE</a> |
+            <a href="ai_pages/ai_discussion.html">AI DISCUSSION</a> |
+            <a href="ai_pages/quiz_page.html">QUIZ PAGE</a> |
+            <a href="acc_pages/course_creation.html">COURSE CREATION</a> |
+            <a href="acc_pages/individual_course.html">INDIVIDUAL COURSES</a> |
         </nav>
     </header>
     <main>
+        <!-- Page for demonstration only. -->
+        <!-- The chat function will be dynamic. -->
+
         <hr>
         <h1>AI Discussion</h1>
         <p>Ask the AI for help with your learning! Type your question below.</p>
         <section>
+            <!-- Demonstrative chat history -->
             <h2>Chat History</h2>
             <p><strong>You:</strong> Sorry, I don't remember the syntax used in the loops section.</p>
             <p><strong>AI:</strong> Would you like an example of a for loop or a while loop?</p>
@@ -33,6 +44,8 @@
                 print("Hello!")  # Runs exactly 5 times
             </pre>
         </section>
+        
+        <!-- Ask questions. -->
         <h2>Ask the AI</h2>
         <form action="#" method="post">
             <label for="user_question">Your Question:</label><br>
@@ -43,6 +56,7 @@
     </main>
     <footer>
         <nav>
+            <!-- Footer for easy access to information. -->
             <a href="../info_pages/about_us.html">ABOUT US</a> |
             <a href="../info_pages/faq.html">FAQ</a> |
             <a href="../info_pages/feedback_form.html">FEEDBACK FORM</a> |
