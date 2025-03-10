@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SpaceLearn - Homepage</title>
 </head>
-<body>
-    <header>
+<body class="body">
+    <header class="header">
         <nav>
             <!-- Navigation Bar -->
             <!-- Currently contains all of the links to access. -->
@@ -52,10 +52,8 @@
             <p>Deep Research functionality to deep-dive into further material.</p>
         </section>
     </main>
-    <hr>
-    <footer>
+    <footer class="footer">
         <!-- Footer for easy access to information. -->
-        <p>This footer will include everything else.</p>
         <nav>
             <a href="info_pages/about_us.html">ABOUT US</a> |
             <a href="info_pages/faq.html">FAQ</a> |
@@ -65,3 +63,32 @@
     </footer>
 </body>
 </html>
+
+<style>
+    .header, .footer {
+        position: fixed;
+        height: 7%;
+        left: 0;
+        width: 100%;
+        background-color: white;
+        color: black;
+
+        /* Flexbox, so the text is centered horizontally & vertically */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+    }
+
+    .header {
+        top: 0;
+    }
+
+    .footer {
+        bottom: 0;
+    }
+
+    .body {
+        padding-top: 3%;
+    }
+</style>
