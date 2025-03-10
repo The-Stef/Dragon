@@ -1,3 +1,6 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
 .header, .footer {
     position: fixed;
     height: 7%;
