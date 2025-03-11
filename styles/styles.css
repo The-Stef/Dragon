@@ -1,6 +1,11 @@
 /* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 
+html, body {
+    height: 100%;
+    overflow-y: auto;
+}
+
 .header, .footer {
     position: fixed;
     height: 7%;
