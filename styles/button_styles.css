@@ -1,7 +1,7 @@
 /* Import Fonts */
 @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 
-.primary_button, .secondary_button, .unavailable_button {
+.primary_button, .secondary_button, .unavailable_button, .accept_button, .reject_button {
     /* Center content horizontally & vertically */
     display: flex;
     align-items: center;
@@ -21,8 +21,12 @@
 }
 
 /* Highlight button when cursor is on it */
-.primary_button:hover, .secondary_button:hover {
+.primary_button:hover, .secondary_button:hover, .accept_button:hover, .reject_button:hover {
     filter: brightness(1.1);
+}
+
+.primary_button:active, .secondary_button:active, .accept_button:active, .reject_button:active {
+    transform: translateY(2px);
 }
 
 .primary_button {
@@ -33,28 +37,48 @@
 }
 
 .secondary_button {
-background-color: white;
-box-shadow: 0px 4px 0px 0px rgb(75, 0, 110);
-color: rgb(75, 0, 110);
-border: 1px solid rgb(75, 0, 110);
+    background-color: white;
+    box-shadow: 0px 4px 0px 0px rgb(75, 0, 110);
+    color: rgb(75, 0, 110);
+    border: 1px solid rgb(75, 0, 110);
 }
 
 /* No active / hovering components, as this button should not be usable */
 .unavailable_button {
-background-color: white;
-box-shadow: 0px 4px 0px 0px rgb(128,128,128);
-color: rgb(128,128,128);
-border: 1px solid rgb(128,128,128);
+    background-color: white;
+    box-shadow: 0px 4px 0px 0px rgb(128,128,128);
+    color: rgb(128,128,128);
+    border: 1px solid rgb(128,128,128);
+}
+
+.accept_button {
+    background-color: rgb(48, 203, 0);
+    box-shadow: 0px 4px 0px 0px rgb(15, 146, 0);
+    color: white;
+    border: 1px solid rgb(48, 203, 0);
+}
+
+.reject_button {
+    background-color: rgb(198, 19, 27);
+    box-shadow: 0px 4px 0px 0px rgb(146, 13, 19);
+    color: white;
+    border: 1px solid rgb(198, 19, 27);
 }
 
 /* Simulate button press */
 .primary_button:active {
-    transform: translateY(2px);
     box-shadow: 0px 2px 0px rgb(0, 0, 128); 
 }
 
 /* Simulate button press */
 .secondary_button:active {
-    transform: translateY(2px);
     box-shadow: 0px 2px 0px rgb(75, 0, 110); 
+}
+
+.accept_button:active {
+    box-shadow: 0px 2px 0px rgb(15, 146, 0);
+}
+
+.reject_button:active {
+    box-shadow: 0px 2px 0px rgb(146, 13, 19);
 }
