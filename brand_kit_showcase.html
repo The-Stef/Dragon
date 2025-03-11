@@ -30,7 +30,6 @@
     </header>
     <main>
         <p>This is just a testing page for all of the CSS elements. It will be deleted at some point.</p>
-        <br>
         <h1 class="text_header">
             Header 1
         </h1>
@@ -47,25 +46,60 @@
             Body 2
         </p>
         <hr>
-        <button class="primary_button">
-            Primary
-        </button>
-        <br>
-        <button class="secondary_button">
-            Secondary
-        </button>
-        <br>
-        <button class="unavailable_button">
-            Unavailable
-        </button>
-        <br>
-        <button class="accept_button">
-            Accept
-        </button>
-        <br>
-        <button class="reject_button">
-            Reject
-        </button>
+        <div class="container">
+            <div>
+                <button class="primary_button">
+                    Primary
+                </button>
+            </div>
+            <div>
+                <button class="secondary_button">
+                    Secondary
+                </button>
+            </div>
+            <div>
+                <button class="unavailable_button">
+                    Unavailable
+                </button>
+            </div>
+            <div>
+                <button class="accept_button">
+                    Accept
+                </button>
+            </div>
+            <div>
+                <button class="reject_button">
+                    Reject
+                </button>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <button class="primary_button_round">
+                    1
+                </button>
+            </div>
+            <div>
+                <button class="secondary_button_round">
+                    2
+                </button>
+            </div>
+            <div>
+                <button class="unavailable_button_round">
+                    X
+                </button>
+            </div>
+            <div>
+                <button class="accept_button_round">
+                    Yes
+                </button>
+            </div>
+            <div>
+                <button class="reject_button_round">
+                    No
+                </button>
+            </div>
+        </div>
     </main>
     <footer class="footer">
         <nav>
@@ -77,3 +111,16 @@
     </footer>
 </body>
 </html>
+
+<style>
+    .container {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      padding: 10px;
+    }
+    .container > div {
+      padding: 10px;
+      font-size: 30px;
+      text-align: center;
+    }
+</style>
