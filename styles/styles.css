@@ -2,34 +2,39 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 
 html, body {
-    margin: 0;
     height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+.main {
+    flex: 1;
 }
 
 .header, .footer {
-    position: relative;
-    height: 7%;
-    left: 0;
-    width: 100%;
     background-color: black;
 
-    /* Flexbox, so the text is centered horizontally & vertically */
     display: flex;
-    box-sizing: border-box;
     justify-content: space-between;
     align-items: center;
     text-align: center;
 
-    /* Visual Aspects - Text */
+    padding: 1em;
     font-family: "Zen Dots", sans-serif;
+    box-sizing: border-box;
 }
 
-.header img {
-    padding-left: 15px;
-    gap: 10px;
+.footer {
+    justify-content: center;
 }
 
-.header a:hover, footer a:hover {
+.header a:hover, .footer a:hover {
     color: rgb(0, 127, 255);
     transition: 0.1s;
 }
@@ -39,20 +44,8 @@ html, body {
     text-decoration: none;
 }
 
-.header {
-    top: 0;
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.footer {
-    bottom: 0;
-    justify-content: center;
-    padding-left: 0;
-    padding-right: 0;
-}
-
-.body {
-    padding-left: 5px;
-    padding-right: 5px;
+/* Optional: images in the header */
+.header img {
+    padding-left: 15px;
+    gap: 10px;
 }
