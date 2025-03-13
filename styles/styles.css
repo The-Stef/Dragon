@@ -11,14 +11,32 @@ html, body {
     height: 7%;
     left: 0;
     width: 100%;
-    background-color: white;
-    color: black;
+    background-color: black;
 
     /* Flexbox, so the text is centered horizontally & vertically */
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     text-align: center;
+
+    /* Visual Aspects - Text */
+    font-family: "Zen Dots", sans-serif;
+}
+
+.header img {
+    padding-left: 15px;
+    gap: 10px;
+}
+
+.header a:hover, footer a:hover {
+    color: rgb(0, 127, 255);
+    transition: 0.1s;
+}
+
+.header a, .footer a {
+    color: white;
+    text-decoration: none;
+    margin: 0 10px;
 }
 
 .header {
@@ -27,6 +45,7 @@ html, body {
 
 .footer {
     bottom: 0;
+    justify-content: center;
 }
 
 .body {
