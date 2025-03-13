@@ -2,12 +2,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
 
 html, body {
-    height: 100%;
     margin: 0;
     padding: 0;
 }
 
 .body {
+    color: white;
+    background-image: linear-gradient(to bottom, rgb(75, 0, 110), black);
     display: flex;
     flex-direction: column;
     min-height: 100vh;
@@ -18,7 +19,7 @@ html, body {
 }
 
 .header, .footer {
-    background-color: black;
+    background-color: transparent;
 
     display: flex;
     justify-content: space-between;
@@ -44,7 +45,6 @@ html, body {
     text-decoration: none;
 }
 
-/* Optional: images in the header */
 .header img {
     padding-left: 15px;
     gap: 10px;
