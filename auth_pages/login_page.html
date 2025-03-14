@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/button_styles.css">
     <link rel="stylesheet" href="../styles/text_styles.css">
+    <link rel="stylesheet" href="../styles/pages/index.css">
     <title>Log In</title>
 </head>
 <body class="body">
@@ -32,28 +33,29 @@
         </nav>
     </header>
     <main class="main">
-        <!-- Login for existing users. -->
-        <h1>Welcome Back!</h1>
-        <p>Log in to continue your learning journey right where you left off.</p>
+        <div class="section_container loginpage">
+            <!-- Login for existing users. -->
+            <h1 class="text_header azure">Welcome Back!</h1>
+            <p class="text_body">Log in to continue your learning journey right where you left off.</p>
+            <!-- Log in with your email. -->
+            <form action="#LOGIN" method="post">
+                <label class="text_body" for="user_email">Your Email Address:</label><br>
+                <input class="input_transparent" type="email" id="user_email" name="user_email" placeholder="Enter your email" required><br>
+                <br>
+                <label class="text_body" for="password">Password:</label><br>
+                <input class="input_transparent" type="password" id="password" name="password" placeholder="Enter your password" required><br>
 
-        <!-- Log in with your email. -->
-        <form action="#LOGIN" method="post">
-            <label for="user_email">Your Email Address:</label><br>
-            <input type="email" id="user_email" name="user_email" placeholder="Enter your email" required><br>
-
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
-
-            <!-- Forgot your password? -->
-            <p><a href="#">Forgot your password?</a></p>
-
-            <label>
-                <input type="checkbox" name="remember_me">
-                Remember me
-            </label><br>            
-
-            <button type="submit">Log In</button>
-        </form>
+                <!-- Forgot your password? -->
+                <p class="text_body left"><a href="#">Forgot your password?</a></p>
+                <div style="display: flex; align-items: center;">
+                    <label class="text_body">
+                        <input type="checkbox" name="remember_me">
+                        Remember me
+                    </label>  
+                </div><br>
+                <button style="margin: auto;" class="primary_button" type="submit">Log In</button>
+            </form>
+        </div>
     </main>
     <footer class="footer">
         <nav>

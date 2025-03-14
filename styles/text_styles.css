@@ -12,6 +12,10 @@
     font-size: 2.618em;
 }
 
+.text_header.azure {
+    color: rgb(0, 127, 255);
+}
+
 .text_header2 {
     font-size: 1.618em;
 }
@@ -29,6 +33,12 @@
 .text_body {
     font-size: 1em;
     font-family: 'Inter', sans-serif;
+}
+
+.text_body.left {
+    font-size: 1em;
+    font-family: 'Inter', sans-serif;
+    text-align: left;
 }
 
 .text_body2 {

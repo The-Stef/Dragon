@@ -27,9 +27,18 @@
     font-weight: 500;
 }
 
-.section-container {
+.section_container {
     display: flex;    
     justify-content: space-between;
     align-items: center;
     gap: 100px;
+}
+
+.section_container.loginpage {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    width: 50%;
+    margin: auto;
+    gap: 20px;
 }

@@ -53,3 +53,12 @@ html, body {
     padding-left: 15px;
     gap: 10px;
 }
+
+.input_transparent {
+    background-color: transparent;
+    border: 1px solid white;
+    color: white;
+    padding: 10px;
+    font-size: 1em;
+    outline: none; 
+}
