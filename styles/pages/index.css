@@ -16,7 +16,7 @@
 }
 
 .smallimg {
-    width: 200px;
+    width: 400px;
     height: auto;
 }
 
@@ -27,11 +27,9 @@
     font-weight: 500;
 }
 
-.sections-container {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: auto;
-    gap: 40px;
-    max-width: 80%;
-    margin: auto;
+.section-container {
+    display: flex;    
+    justify-content: space-between;
+    align-items: center;
+    gap: 100px;
 }
