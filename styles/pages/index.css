@@ -38,7 +38,5 @@
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    width: 50%;
-    margin: auto;
     gap: 20px;
 }

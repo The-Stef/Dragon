@@ -56,9 +56,30 @@ html, body {
 
 .input_transparent {
     background-color: transparent;
-    border: 1px solid white;
-    color: white;
-    padding: 10px;
+    width: 300px;
+    border: 1px solid #808080;
+    border-color: #808080;
+    border-radius: 30px;
+    color: rgb(215, 215, 215);
+    padding: 25px;
     font-size: 1em;
-    outline: none; 
+    font-family: "Inter", sans-serif;
+    outline: none;
+    transition: 
+        border-color 0.5s,
+        box-shadow 0.5s;
+}
+
+.input_transparent:focus {
+    border-color: white;
+    box-shadow: 0 0 20px 1px white;
+}
+
+.input_transparent::placeholder {
+    color: white;
+}
+
+canvas {
+    display: block;
+    z-index: -1;
 }
