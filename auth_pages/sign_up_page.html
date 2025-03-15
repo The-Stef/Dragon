@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/button_styles.css">
     <link rel="stylesheet" href="../styles/text_styles.css">
+    <link rel="stylesheet" href="../styles/pages/index.css">
     <title>Sign Up</title>
 </head>
 <body class="body">
@@ -32,60 +33,70 @@
         </nav>
     </header>
     <main class="main">
-        <!-- This is the sign up page for users -->
-        <h1>Create Your SpaceLearn Account</h1>
-        <p>Join SpaceLearn and start your personalized learning journey today!</p>
-        
-        <!-- Form action will be updated once database is connected -->
-        <form action="#SIGNUP" method="post">
+        <div class="section_container loginpage">
+            <h1 class="text_header azure">Create Your SpaceLearn Account</h1>
+            <p class="text_body">Join SpaceLearn and start your personalized learning journey today!</p>
+            <!-- Log in with your email. -->
+            <form action="#SIGNUP" method="post">
+                <!-- Collecting the names seperately -->
+                <!-- This will allow us to personalize the service further -->
+                <!-- by referring the user by their first name in the future -->
 
-            <!-- Collecting the names seperately -->
-            <!-- This will allow us to personalize the service further -->
-            <!-- by referring the user by their first name in the future -->
-            <label for="first_name">Full Name:</label><br>
-            <input type="text" id="first_name" name="first_name" placeholder="Enter your first name" required><br>
+                <label class="text_body">First Name:</label><br>
+                <input class="input_transparent" type="first_name" id="first_name" name="firstName" placeholder="Enter your first name" required><br>
+                <br>
 
-            <label for="last_name">Full Name:</label><br>
-            <input type="text" id="last_name" name="last_name" placeholder="Enter your last name" required><br>
+                <label class="text_body">Second Name:</label><br>
+                <input class="input_transparent" type="second_name" id="second_name" name="secondName" placeholder="Enter your second name" required><br>
+                <br>
 
-            <!-- Other details -->
-            <label for="username">Username:</label><br>
-            <input type="text" id="username" name="username" placeholder="Choose a username" required><br>
+                <!-- Other details -->
+                <label class="text_body" for="username">Username:</label><br>
+                <input class="input_transparent" type="text" id="username" name="username" placeholder="Choose a username" required><br>
+                <br>
 
-            <label for="user_email">Email Address:</label><br>
-            <input type="email" id="user_email" name="user_email" placeholder="Enter your email" required><br>
+                <label class="text_body" for="user_email">Email Address:</label><br>
+                <input class="input_transparent" type="email" id="user_email" name="userEmail" placeholder="Enter your email" required><br>
+                <br>
 
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" placeholder="Create a password" required><br>
-            <small>Use at least 8 characters, including a number & symbol.</small><br>
+                <label class="text_body" for="password">Password:</label><br>
+                <input class="input_transparent" type="password" id="password" name="password" placeholder="Create a password" required><br>
+                <small class="text_body2">Use at least 8 characters, including a number & symbol.</small><br>
+                <br>
 
-            <label for="confirm_password">Confirm Password:</label><br>
-            <input type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter your password" required><br>
+                <label class="text_body" for="confirm_password">Confirm Password:</label><br>
+                <input class="input_transparent" type="password" id="confirm_password" name="confirm_password" placeholder="Re-enter your password" required><br>
+                <br>
 
-            <label for="age">Age:</label><br>
-            <input type="number" id="age" name="age" placeholder="Enter your age" min="13" required><br>
+                <label class="text_body" for="age">Age:</label><br>
+                <input class="input_transparent" type="number" id="age" name="age" placeholder="Enter your age" min="13" required><br>
+                <br>
 
-            <!-- For data analytics and platform customization -->
-            <label for="user_type">I am a:</label><br>
-            <select id="user_type" name="user_type">
-                <option value="student">Student</option>
-                <option value="educator">Educator</option>
-                <option value="lifelong_learner">Lifelong Learner</option>
-                <option value="Other">Other</option>
-            </select><br>
+                <!-- For data analytics and platform customization -->
+                <label class="text_body" for="user_type">I am a:</label><br>
+                <select id="user_type" name="user_type">
+                    <option value="student">Student</option>
+                    <option value="educator">Educator</option>
+                    <option value="lifelong_learner">Lifelong Learner</option>
+                    <option value="Other">Other</option>
+                </select><br>
+                <br>
 
-            <!-- For data analytics and platform customization. -->
-            <label for="interests">What are you interested in learning?</label><br>
-            <input type="text" id="interests" name="interests" placeholder="e.g., History, AI, Design"><br>
+                <!-- For data analytics and platform customization. -->
+                <label class="text_body" for="interests">What are you interested in learning?</label><br><br>
+                <input class="input_transparent" type="text" id="interests" name="interests" placeholder="e.g., History, AI, Design"><br>
+                <br>
 
-            <!-- Confirming the privacy policy. -->
-            <label>
-                <input type="checkbox" name="agree_terms" required>
-                I agree to the <a href="../info_pages/privacy_policy.html">Terms & Privacy Policy</a>
-            </label><br>
+                <!-- Confirming the privacy policy. -->
+                <label class="text_body">
+                    <input type="checkbox" name="agree_terms" required>
+                    I agree to the <a href="../info_pages/privacy_policy.html">Terms & Privacy Policy</a>
+                </label><br>
+                <br>
 
-            <button type="submit">Create Account</button>
-        </form>
+                <button style="margin: auto;" class="primary_button" type="submit">Create Account</button>
+            </form><br>
+        </div>
     </main>
     <footer class="footer">
         <nav>
