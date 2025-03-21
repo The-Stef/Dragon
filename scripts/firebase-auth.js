@@ -56,6 +56,7 @@ export async function signupWithEmail(event) {
   }
 }
 
+// Log in with email
 export async function loginWithEmail(event) {
   event.preventDefault(); // Prevent form refresh
 
