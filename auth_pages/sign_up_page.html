@@ -37,7 +37,7 @@
             <h1 class="text_header azure">Create Your SpaceLearn Account</h1>
             <p class="text_body">Join SpaceLearn and start your personalized learning journey today!</p>
             <!-- Log in with your email. -->
-            <form action="#SIGNUP" method="post">
+            <form id="signup-form">
                 <!-- Collecting the names seperately -->
                 <!-- This will allow us to personalize the service further -->
                 <!-- by referring the user by their first name in the future -->
@@ -89,12 +89,12 @@
 
                 <!-- Confirming the privacy policy. -->
                 <label class="text_body">
-                    <input type="checkbox" name="agree_terms" required>
+                    <input id="agree_terms" type="checkbox" name="agree_terms" required>
                     I agree to the <a href="../info_pages/privacy_policy.html">Terms & Privacy Policy</a>
                 </label><br>
                 <br>
 
-                <button style="margin: auto;" class="primary_button" type="submit">Create Account</button>
+                <button id="signup-btn" style="margin: auto;" class="primary_button" type="submit">Create Account</button>
             </form><br>
         </div>
     </main>
@@ -107,5 +107,6 @@
             <a href="../info_pages/privacy_policy.html">PRIVACY POLICY</a> &nbsp;
         </nav>
     </footer>
+    <script type="module" src="../scripts/firebase-auth.js"></script>
 </body>
 </html>
