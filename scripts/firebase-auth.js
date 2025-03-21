@@ -7,7 +7,7 @@ import firebaseConfig from "../config.js";
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-const db = getFirestore(app); // Firestore Database 
+const db = getFirestore(app); // Firestore Database  
 
 export async function signupWithEmail(event) {
   event.preventDefault(); // Prevent form refresh
