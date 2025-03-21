@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expandable FAQ</title>
+    <style>
+        .faq-item {
+            border-bottom: 1px solid #ccc;
+            padding: 10px;
+        }
+        .faq-question {
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .faq-answer {
+            display: none;
+            padding-top: 5px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>Frequently Asked Questions</h2>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">What is this project about?</div>
+        <div class="faq-answer">This project is a simple test to stage and commit files in Git.</div>
+    </div>
+
+    <div class="faq-item">
+        <div class="faq-question" onclick="toggleFAQ(this)">How do I push changes to Git?</div>
+        <div class="faq-answer">Run `git add .`, then `git commit -m "Added FAQ component"`, and finally `git push`.</div>
+    </div>
+
+    <script>
+        function toggleFAQ(element) {
+            let answer = element.nextElementSibling;
+            answer.style.display = answer.style.display === "block" ? "none" : "block";
+        }
+    </script>
+
+</body>
+</html>
