@@ -3,64 +3,113 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/button_styles.css">
+    <link rel="stylesheet" href="styles/text_styles.css">
+    <link rel="stylesheet" href="styles/pages/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <title>SpaceLearn - Homepage</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script type="importmap">
+        {
+          "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.174.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.174.0/examples/jsm/"
+          }
+        }
+      </script>
 </head>
-<body>
-    <header>
+<body class="body">
+    <script type="module" src="/index_background.js"></script>
+    <header class="header" style="justify-content: right;">
+        <div style="opacity: 0;">
+            <img src="assets/SpaceLearnLogo.png" width="100">
+        </div>
         <nav>
             <!-- Navigation Bar -->
             <!-- Currently contains all of the links to access. -->
             <!-- Links will be seperated later on, based on if they are before or after log in. -->
-            <a href="index.html">HOME</a> |
+            <a href="index.html">HOME</a> &nbsp;
 
             <!-- Login and Signup -->
-            <a href="auth_pages/login_page.html">LOG IN</a> |
-            <a href="auth_pages/sign_up_page.html">SIGN UP</a> |
+            <a href="auth_pages/login_page.html">LOG IN</a> &nbsp;
+            <a href="auth_pages/sign_up_page.html">SIGN UP</a> &nbsp;
 
             <!-- After registration -->
-            <a href="acc_pages/user_dashboard.html">PROFILE</a> |
-            <a href="ai_pages/ai_discussion.html">AI DISCUSSION</a> |
-            <a href="ai_pages/quiz_page.html">QUIZ PAGE</a> |
-            <a href="acc_pages/course_creation.html">COURSE CREATION</a> |
-            <a href="acc_pages/individual_course.html">INDIVIDUAL COURSES</a> |
+            <a href="acc_pages/user_dashboard.html">PROFILE</a> &nbsp;
+            <a href="ai_pages/ai_discussion.html">AI DISCUSSION</a> &nbsp;
+            <a href="ai_pages/quiz_page.html">QUIZ PAGE</a> &nbsp;
+            <a href="acc_pages/course_creation.html">COURSE CREATION</a> &nbsp;
+            <a href="acc_pages/individual_course.html">INDIVIDUAL COURSES</a> &nbsp;
         </nav>
     </header>
-    <main>
+    <main class="main">
         <!-- This is our landing page. -->
         <!-- This will contain first-look information about our web application -->
-        <!-- The information will not be long, comparable to what is specified here.  -->
-        <!-- It will be mostly visuals with CSS. -->
-        <section>
-            <!-- Main header -->
-            <!-- To be centered -->
-            <h1>SpaceLearn</h1>
-            <p>Learn anything with AI and spaced repetition!</p>    
-        </section>
-        <section>
-            <h2>Knowledge Assistant, powered by AI</h2>
-            <p>Auto-generated learning path, for any topic you can imagine.</p>
-            <p>AI assistant to help you with your studies.</p>
-        </section>
-        <section>
-            <h2>Goal Oriented Learning</h2>
-            <p>AI adjusts the learning path depending on your goal.</p>
-            <p>Reminders, motivation boosters, and progress reports to keep you going.</p>
-        </section>
-        <section>
-            <h2>AI-Generated Practice & Knowledge Tests</h2>
-            <p>Auto-generated flashcards and quizzes, from user provided resources.</p>
-            <p>Deep Research functionality to deep-dive into further material.</p>
-        </section>
+        <!-- Introductory logo & tagline, user must scroll to view other content -->
+        <div class="div_center">
+            <img class="largeimg" src="assets/SpaceLearnLogo.png">
+            <p>Learn anything with AI and spaced repetition!</p>
+        </div>
+        <div class="content_container">
+            <span class="section_container">
+                <div class="text-block">
+                    <h2 class="text_header2 azure">
+                        Knowledge Assistant, powered by AI
+                    </h2>
+                    <p class="text_body">
+                        One AI assistant to help you with your studies.
+                        Endless possibilities for learning new subjects.
+                    </p>    
+                </div>
+                
+                <div class="div-center">
+                    <img class="smallimg" src="assets/PlaceholderCircle.png">
+                </div>
+            </span>
+            <span class="section_container">
+                <div class="div_center">
+                    <img class="smallimg" src="assets/PlaceholderCircle.png">
+                </div>
+
+                <div class="text-block">
+                    <h2 class="text_header2 azure">
+                        Goal Oriented Learning
+                    </h2>
+    
+                    <p class="text_body">
+                        AI adjusts the learning path depending on your goal.
+                        Reminders, motivation boosters, and progress reports to keep you going.
+                    </p>
+                </div>
+            </span>
+            <span class="section_container">
+                <div class="text-block">
+                    <h2 class="text_header2 azure">
+                        Goal Oriented Learning
+                    </h2>
+                    
+                    <p class="text_body">
+                        Auto-generated flashcards and quizzes, from user provided resources.
+                        Deep Research functionality to deep-dive into further material.
+                    </p>    
+                </div>        
+    
+                <div class="div_center">
+                    <img class="smallimg" src="assets/PlaceholderCircle.png">
+                </div>
+            </span>
+        </div>
     </main>
-    <hr>
-    <footer>
+    <footer class="footer">
         <!-- Footer for easy access to information. -->
-        <p>This footer will include everything else.</p>
         <nav>
-            <a href="info_pages/about_us.html">ABOUT US</a> |
-            <a href="info_pages/faq.html">FAQ</a> |
-            <a href="info_pages/feedback_form.html">FEEDBACK_FORM</a> |
-            <a href="info_pages/privacy_policy.html">PRIVACY POLICY</a> |
+            <a href="info_pages/about_us.html">ABOUT US</a> &nbsp;
+            <a href="info_pages/faq.html">FAQ</a> &nbsp;
+            <a href="info_pages/feedback_form.html">FEEDBACK FORM</a> &nbsp;
+            <a href="info_pages/privacy_policy.html">PRIVACY POLICY</a> &nbsp;
         </nav>
     </footer>
 </body>

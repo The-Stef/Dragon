@@ -3,62 +3,79 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/button_styles.css">
+    <link rel="stylesheet" href="../styles/text_styles.css">
+    <link rel="stylesheet" href="../styles/pages/index.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
     <title>Log In</title>
 </head>
-<body>
-    <header>
+<body class="body">
+    <script>
+        $(".input_transparent").on("click", function (event) {
+            event.preventDefault();
+            $(".input_transparent").addClass("active");
+        });
+    </script>
+    <header class="header">
+        <div>
+            <img src="../assets/SpaceLearnLogo.png" width="100">
+        </div>
         <nav>
             <!-- Navigation Bar -->
             <!-- Currently contains all of the links to access. -->
             <!-- Links will be seperated later on, based on if they are before or after log in. -->
-            <a href="../index.html">HOME</a> |
+            <a href="../index.html">HOME</a> &nbsp;
 
             <!-- Login and Signup -->
-            <a href="../auth_pages/login_page.html">LOG IN</a> |
-            <a href="../auth_pages/sign_up_page.html">SIGN UP</a> |
+            <a href="../auth_pages/login_page.html">LOG IN</a> &nbsp;
+            <a href="../auth_pages/sign_up_page.html">SIGN UP</a> &nbsp;
 
             <!-- After registration -->
-            <a href="../acc_pages/user_dashboard.html">PROFILE</a> |
-            <a href="../ai_pages/ai_discussion.html">AI DISCUSSION</a> |
-            <a href="../ai_pages/quiz_page.html">QUIZ PAGE</a> |
-            <a href="../acc_pages/course_creation.html">COURSE CREATION</a> |
-            <a href="../acc_pages/individual_course.html">INDIVIDUAL COURSES</a> |
+            <a href="../acc_pages/user_dashboard.html">PROFILE</a> &nbsp;
+            <a href="../ai_pages/ai_discussion.html">AI DISCUSSION</a> &nbsp;
+            <a href="../ai_pages/quiz_page.html">QUIZ PAGE</a> &nbsp;
+            <a href="../acc_pages/course_creation.html">COURSE CREATION</a> &nbsp;
+            <a href="../acc_pages/individual_course.html">INDIVIDUAL COURSES</a> &nbsp;
         </nav>
     </header>
-    <main>
-        <!-- Login for existing users. -->
-        <hr>
-        <h1>Welcome Back!</h1>
-        <p>Log in to continue your learning journey right where you left off.</p>
+    <main class="main">
+        <div class="section_container loginpage">
+            <!-- Login for existing users. -->
+            <h1 class="text_header azure">Welcome Back!</h1>
 
-        <!-- Log in with your email. -->
-        <form action="#LOGIN" method="post">
-            <label for="user_email">Your Email Address:</label><br>
-            <input type="email" id="user_email" name="user_email" placeholder="Enter your email" required><br>
+            <p class="text_body">Log in to continue your learning journey right where you left off.</p>
 
-            <label for="password">Password:</label><br>
-            <input type="password" id="password" name="password" placeholder="Enter your password" required><br>
+            <!-- Log in with your email. -->
+            <form id="login-form">
+                <input class="input_transparent" type="email" id="user_email" name="user_email" placeholder="Email Address" required><br>
+                <br>
+                <input class="input_transparent" type="password" id="password" name="password" placeholder="Password" required><br>
 
-            <!-- Forgot your password? -->
-            <p><a href="#">Forgot your password?</a></p>
-
-            <label>
-                <input type="checkbox" name="remember_me">
-                Remember me
-            </label><br>            
-
-            <button type="submit">Log In</button>
-        </form>
-        <hr>
+                <!-- Forgot your password? -->
+                <p class="text_body left"><a href="#">Forgot your password?</a></p>
+                <div style="display: flex; align-items: center;">
+                    <label class="text_body">
+                        <input type="checkbox" name="remember_me">
+                        Remember me
+                    </label>  
+                </div><br>
+                <button id="login-btn" style="margin: auto;" class="primary_button" type="submit">Log In</button>
+            </form>
+        </div>
     </main>
-    <footer>
+    <footer class="footer">
         <nav>
             <!-- Footer for easy access to information. -->
-            <a href="../info_pages/about_us.html">ABOUT US</a> |
-            <a href="../info_pages/faq.html">FAQ</a> |
-            <a href="../info_pages/feedback_form.html">FEEDBACK FORM</a> |
-            <a href="../info_pages/privacy_policy.html">PRIVACY POLICY</a> |
+            <a href="../info_pages/about_us.html">ABOUT US</a> &nbsp;
+            <a href="../info_pages/faq.html">FAQ</a> &nbsp;
+            <a href="../info_pages/feedback_form.html">FEEDBACK FORM</a> &nbsp;
+            <a href="../info_pages/privacy_policy.html">PRIVACY POLICY</a> &nbsp;
         </nav>
     </footer>
+    <script type="module" src="../scripts/firebase-auth.js"></script>
 </body>
 </html>

@@ -1,0 +1,154 @@
+/* Import Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap');
+
+.primary_button, .secondary_button, .unavailable_button, .accept_button, .reject_button,
+.primary_button_round, .secondary_button_round, .accept_button_round, .reject_button_round, .unavailable_button_round {
+    /* Center content horizontally & vertically */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    /* Visual Aspects - Button */
+    height: 50px;
+    width: 200px;
+    border-radius: 12px;
+
+    /* Visual Aspects - Text */
+    font-family: "Zen Dots", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+
+    cursor: pointer;
+}
+
+/* Highlight button when cursor is on it */
+.primary_button:hover, .secondary_button:hover, .accept_button:hover, .reject_button:hover,
+.primary_button_round:hover, .secondary_button_round:hover, .accept_button_round:hover, .reject_button_round:hover {
+    filter: brightness(1.1);
+}
+
+.primary_button:active, .secondary_button:active, .accept_button:active, .reject_button:active,
+.primary_button_round:active, .secondary_button_round:active, .accept_button_round:active, .reject_button_round:active {
+    transform: translateY(2px);
+}
+
+.primary_button {
+    display: block;
+    text-align: center;
+    background-color: rgb(0, 127, 255);
+    box-shadow: 0px 4px 0px 0px rgb(0, 0, 128);
+    color: white;
+    border: none;
+}
+
+.primary_button_round {
+    background-color: rgb(0, 127, 255);
+    box-shadow: 0px 4px 0px 0px rgb(0, 0, 128);
+    color: white;
+    border: none;
+
+    border-radius: 50%;
+    width: 50px;
+}
+
+.secondary_button {
+    background-color: white;
+    box-shadow: 0px 4px 0px 0px rgb(75, 0, 110);
+    color: rgb(75, 0, 110);
+    border: 1px solid rgb(75, 0, 110);
+}
+
+.secondary_button_round {
+    background-color: white;
+    box-shadow: 0px 4px 0px 0px rgb(75, 0, 110);
+    color: rgb(75, 0, 110);
+    border: 1px solid rgb(75, 0, 110);
+
+    border-radius: 50%;
+    width: 50px;
+}
+
+/* No active / hovering components, as this button should not be usable */
+.unavailable_button {
+    background-color: white;
+    box-shadow: 0px 4px 0px 0px rgb(128,128,128);
+    color: rgb(128,128,128);
+    border: 1px solid rgb(128,128,128);
+}
+
+.unavailable_button_round {
+    background-color: white;
+    box-shadow: 0px 4px 0px 0px rgb(128,128,128);
+    color: rgb(128,128,128);
+    border: 1px solid rgb(128,128,128);
+
+    border-radius: 50%;
+    width: 50px;
+}
+
+.accept_button {
+    background-color: rgb(48, 203, 0);
+    box-shadow: 0px 4px 0px 0px rgb(15, 146, 0);
+    color: white;
+    border: 1px solid rgb(48, 203, 0);
+}
+
+.accept_button_round {
+    background-color: rgb(48, 203, 0);
+    box-shadow: 0px 4px 0px 0px rgb(15, 146, 0);
+    color: white;
+    border: 1px solid rgb(48, 203, 0);
+
+    border-radius: 50%;
+    width: 50px;
+}
+
+.reject_button {
+    background-color: rgb(198, 19, 27);
+    box-shadow: 0px 4px 0px 0px rgb(146, 13, 19);
+    color: white;
+    border: 1px solid rgb(198, 19, 27);
+}
+
+.reject_button_round {
+    background-color: rgb(198, 19, 27);
+    box-shadow: 0px 4px 0px 0px rgb(146, 13, 19);
+    color: white;
+    border: 1px solid rgb(198, 19, 27);
+
+    border-radius: 50%;
+    width: 50px;
+}
+
+/* Simulate button press */
+.primary_button:active {
+    box-shadow: 0px 2px 0px rgb(0, 0, 128); 
+}
+
+.primary_button_round:active {
+    box-shadow: 0px 2px 0px rgb(0, 0, 128); 
+}
+
+.secondary_button:active {
+    box-shadow: 0px 2px 0px rgb(75, 0, 110); 
+}
+
+.secondary_button_round:active {
+    box-shadow: 0px 2px 0px rgb(75, 0, 110); 
+}
+
+.accept_button:active {
+    box-shadow: 0px 2px 0px rgb(15, 146, 0);
+}
+
+.accept_button_round:active {
+    box-shadow: 0px 2px 0px rgb(15, 146, 0);
+}
+
+.reject_button:active {
+    box-shadow: 0px 2px 0px rgb(146, 13, 19);
+}
+
+.reject_button_round:active {
+    box-shadow: 0px 2px 0px rgb(146, 13, 19);
+}

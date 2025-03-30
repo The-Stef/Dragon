@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles/styles.css">
+    <link rel="stylesheet" href="styles/button_styles.css">
+    <link rel="stylesheet" href="styles/text_styles.css">
+    <title>CSS Check</title>
+</head>
+<body class="body">
+    <header class="header">
+        <div>
+            <img src="assets/SpaceLearnLogo.png" width="100">
+        </div>
+        <nav>
+            <!-- Navigation Bar -->
+            <!-- Currently contains all of the links to access. -->
+            <!-- Links will be seperated later on, based on if they are before or after log in. -->
+            <a href="index.html">HOME</a> &nbsp;
+
+            <!-- Login and Signup -->
+            <a href="auth_pages/login_page.html">LOG IN</a> &nbsp;
+            <a href="auth_pages/sign_up_page.html">SIGN UP</a> &nbsp;
+
+            <!-- After registration -->
+            <a href="acc_pages/user_dashboard.html">PROFILE</a> &nbsp;
+            <a href="ai_pages/ai_discussion.html">AI DISCUSSION</a> &nbsp;
+            <a href="ai_pages/quiz_page.html">QUIZ PAGE</a> &nbsp;
+            <a href="acc_pages/course_creation.html">COURSE CREATION</a> &nbsp;
+            <a href="acc_pages/individual_course.html">INDIVIDUAL COURSES</a> &nbsp;
+        </nav>
+    </header>
+    <main class="main">
+        <p>This is just a testing page for all of the CSS elements. It will be deleted at some point.</p>
+        <h1 class="text_header">
+            Header 1
+        </h1>
+        <h2 class="text_header2">
+            Header 2
+        </h2>
+        <h2 class="text_header_alt">
+            Header Alt.
+        </h2>
+        <p class="text_body">
+            Body
+        </p>
+        <p class="text_body2">
+            Body 2
+        </p>
+        <hr>
+        <div class="container">
+            <div>
+                <button class="primary_button">
+                    Primary
+                </button>
+            </div>
+            <div>
+                <button class="secondary_button">
+                    Secondary
+                </button>
+            </div>
+            <div>
+                <button class="unavailable_button">
+                    Unavailable
+                </button>
+            </div>
+            <div>
+                <button class="accept_button">
+                    Accept
+                </button>
+            </div>
+            <div>
+                <button class="reject_button">
+                    Reject
+                </button>
+            </div>
+        </div>
+        <div class="container">
+            <div>
+                <button class="primary_button_round">
+                    1
+                </button>
+            </div>
+            <div>
+                <button class="secondary_button_round">
+                    2
+                </button>
+            </div>
+            <div>
+                <button class="unavailable_button_round">
+                    X
+                </button>
+            </div>
+            <div>
+                <button class="accept_button_round">
+                    Yes
+                </button>
+            </div>
+            <div>
+                <button class="reject_button_round">
+                    No
+                </button>
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <nav>
+            <a href="info_pages/about_us.html">ABOUT US</a> &nbsp;
+            <a href="info_pages/faq.html">FAQ</a> &nbsp;
+            <a href="info_pages/feedback_form.html">FEEDBACK_FORM</a> &nbsp;
+            <a href="info_pages/privacy_policy.html">PRIVACY POLICY</a> &nbsp;
+        </nav>
+    </footer>
+</body>
+</html>
+
+<style>
+    .container {
+      display: grid;
+      grid-template-columns: auto auto auto;
+      padding: 10px;
+    }
+    .container > div {
+      padding: 10px;
+      font-size: 30px;
+      text-align: center;
+    }
+</style>
