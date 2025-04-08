@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/button_styles.css">
     <link rel="stylesheet" href="../styles/text_styles.css">
+    <link rel="stylesheet" href="../styles/pages/userdashboard.css">
     <title>Dashboard</title>
 </head>
 <body class="body">
@@ -14,36 +15,47 @@
             <img src="../assets/SpaceLearnLogo.png" width="100">
         </div>
         <nav>
-            <a href="../index.html">HOME</a> &nbsp;
-            <a href="../auth_pages/login_page.html">LOG IN</a> &nbsp;
-            <a href="../auth_pages/sign_up_page.html">SIGN UP</a> &nbsp;
             <a href="../acc_pages/user_dashboard.html">PROFILE</a> &nbsp;
             <a href="../ai_pages/ai_discussion.html">AI DISCUSSION</a> &nbsp;
             <a href="../ai_pages/quiz_page.html">QUIZ PAGE</a> &nbsp;
-            <a href="../acc_pages/course_creation.html">COURSE CREATION</a> &nbsp;
             <a href="../acc_pages/individual_course.html">INDIVIDUAL COURSES</a> &nbsp;
         </nav>
     </header>
     <main class="main">
         <!-- Profile and dashboard for users -->
-        <h1>Welcome, [USERNAME]!</h1>
-        <p>Here's a quick overview of your time spent with us so far.</p>
-        
+        <div class="profile-banner">
+            <img src="../assets/placeholder-banner.png" alt="Profile Banner">
+        </div>
+
+        <div class="profile-image-container">
+            <img src="../assets/DefaultProfilePicture.png" alt="Profile Picture" width="175px"><br>
+        </div>
+
+        <div class="edit-profile-container">
+            <button class="primary_button">Edit Profile</button>
+        </div>
+
+        <div class="username-container">
+            <p class="text_header">USERNAME</p>
+        </div>
+
+        <div class="email-container">
+            <p class="text_body">dummy@example.com</p>
+        </div>
+
         <!-- Profile editing -->
         <section>
-            <img src="../assets/DefaultProfilePicture.png" alt="Profile Picture" width="150px"><br>
-            <form action="#" method="post" enctype="multipart/form-data">
+            <!-- <form action="#" method="post" enctype="multipart/form-data">
                 <label for="profile_picture">Change Profile Picture:</label><br>
                 <input type="file" id="profile_picture" name="profile_picture" accept="image/*"><br>
                 <button type="submit">Upload</button>
-            </form>
+            </form> -->
         </section>
         
         <!-- Account information editing -->
         <section>
             <h2>Account Information</h2>
             <ul>
-                <li><strong>Username:</strong> DummyUsername</li>
                 <li><strong>Email:</strong> dummy@example.com</li>
                 <li><strong>Account Type:</strong> Student</li>
                 <li><strong>Member Since:</strong> January 2025</li>
@@ -59,12 +71,16 @@
                 <li><strong>Courses Completed:</strong> 2</li>
                 <li><strong>Current Learning Streak:</strong> 7 days</li>
             </ul>
+            <div>
+                <form action="course_creation.html" method="get">
+                    <button type="submit" class="primary_button">Create New Course</button>
+                </form>                  
+            </div>
         </section>
         <section>
             <!-- Quick actions for users to do right after their profile edits. -->
             <h2>Quick Actions</h2>
             <ul>
-                <li><a href="course_creation.html">Create a New Course</a></li>
                 <li><a href="individual_course.html">Continue Your Last Course</a></li>
                 <li><a href="../ai_pages/quiz_page.html">Take a Quiz</a></li>
             </ul>
