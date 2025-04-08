@@ -1,12 +1,49 @@
 .shiny-blue-container {
+    border-radius: 15px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 217, 255, 0.2);
+    filter: drop-shadow(0px 0px 5px #21384F);
+    isolation: isolate;
+}
+
+.shiny-blue-container::after {
+    content: "";
+    position: absolute;
+    backdrop-filter: blur(60px);
+    background: linear-gradient(
+        47deg,
+        #000000,
+        #002143
+      ); 
+    inset: 0;
+    opacity: 0.5;
+    z-index: -2;
+}
+
+.blue-container {
     background: linear-gradient(
         47deg,
         #000000,
         #002143
       );
     border-radius: 15px;
-    filter: drop-shadow(0px 0px 5px #21384F);
     backdrop-filter: blur(60px);
+}
+
+
+.blue-container::after {
+    content: "";
+    position: absolute;
+    backdrop-filter: blur(60px);
+    background: linear-gradient(
+        47deg,
+        #000000,
+        #002143
+      ); 
+    inset: 0;
+    opacity: 0.5;
+    z-index: -2; 
 }
 
 .top-bar {
@@ -38,7 +75,7 @@
 
 .shiny-blue {
     color: #00D9FF;
-    filter: drop-shadow(0 0 7px #00D9FF);
+    filter: drop-shadow(0 0 7px rgb(0, 217, 255));
 }
 
 .shiny-white {
@@ -54,10 +91,13 @@
     box-sizing: border-box;
     padding: 20px;
     background-image: url(/assets/space-background.png);
-    background-size:contain;
+    background-size: contain;
     width: 100%;
     height: 100%;
     border-radius: 15px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: rgba(0, 217, 255, 0.2);
 }
 
 .dashboard-container {
@@ -70,8 +110,65 @@ body {
     background-color: #000000;
     flex-direction: column;
     margin: 20px;
+    height: 100%;
     align-items: center;
     justify-content: space-between;
     row-gap: 30px;
     height: auto;
+}
+
+.reading-container {
+    position: relative;
+    width: 20%;
+    height: fit-content;
+    height: fit-content;
+    padding: 20px;
+}
+
+.reading-container {
+    position: relative;
+    width: 20%;
+    height: fit-content;
+    padding: 20px;
+}
+
+.small-title {
+    margin: 0 0 10px 0;
+    font-size: 16px;
+}
+
+.small-text {
+    margin: 0 0 0px 0;
+    font-size: 10px;
+}
+
+.text-container {
+    margin: 0 0 20px 0;
+}
+
+.list-container {
+    position:relative;
+    display: flex;
+    align-items: flex-start;
+    width: 100%;
+    height: 100%;
+    gap: 10px;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.list-item {
+    margin: 0;
+    width: 100%;
+    border-radius: 15px;
+    border-style: solid;
+    border-color: #00D9FF;
+    border-width: 1px;
+    background: linear-gradient(
+        47deg,
+        #000000,
+        #002143
+    );
+    padding: 10px;
+    filter: drop-shadow(0 0 2px rgb(0, 217, 255));
 }
