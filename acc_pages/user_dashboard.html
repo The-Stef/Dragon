@@ -31,6 +31,7 @@
             <img src="../assets/DefaultProfilePicture.png" alt="Profile Picture" width="175px"><br>
         </div>
 
+        <!-- When JS will be implemented, users will be able to see their info in the fields and be able to update their profile -->
         <div class="edit-profile-container">
             <button class="primary_button">Edit Profile</button>
         </div>
@@ -43,57 +44,61 @@
             <p class="text_body">dummy@example.com</p>
         </div>
 
-        <!-- Profile editing -->
-        <section>
-            <!-- <form action="#" method="post" enctype="multipart/form-data">
-                <label for="profile_picture">Change Profile Picture:</label><br>
-                <input type="file" id="profile_picture" name="profile_picture" accept="image/*"><br>
-                <button type="submit">Upload</button>
-            </form> -->
-        </section>
-        
-        <!-- Account information editing -->
-        <section>
-            <h2>Account Information</h2>
-            <ul>
-                <li><strong>Email:</strong> dummy@example.com</li>
-                <li><strong>Account Type:</strong> Student</li>
-                <li><strong>Member Since:</strong> January 2025</li>
-            </ul>
-        </section>
-        
-        <!-- Staticstics of the user -->
-        <!-- Graphical view will be introduced in the future -->
-        <section>
-            <h2>Your Learning Stats</h2>
-            <ul>
-                <li><strong>Courses Enrolled:</strong> 5</li>
-                <li><strong>Courses Completed:</strong> 2</li>
-                <li><strong>Current Learning Streak:</strong> 7 days</li>
-            </ul>
-            <div>
-                <form action="course_creation.html" method="get">
-                    <button type="submit" class="primary_button">Create New Course</button>
-                </form>                  
+        <hr>
+            <div class="row">
+                <label class="text_header_alt lower-label">Name:</label>
+                <div>
+                    <input class="input_transparent" type="text" id="first-name" placeholder="First">
+                    <input class="input_transparent" type="text" id="last-name" placeholder="Last">
+                </div>
             </div>
-        </section>
-        <section>
-            <!-- Quick actions for users to do right after their profile edits. -->
-            <h2>Quick Actions</h2>
-            <ul>
-                <li><a href="individual_course.html">Continue Your Last Course</a></li>
-                <li><a href="../ai_pages/quiz_page.html">Take a Quiz</a></li>
-            </ul>
-        </section>
+        <hr>
+            <div class="row">
+                <div class="two-box">
+                    <p class="text_header_alt">Account Type</p>
+                    <p class="text_body">Student</p>
+                </div>
+
+                <div class="two-box">
+                    <p class="text_header_alt">Member Since</p>
+                    <p class="text_body">Jan 2025</p>
+                </div>
+
+                <div class="two-box">
+                    <p class="text_header_alt">Active Courses</p>
+                    <p class="text_body">5</p>
+                </div>
+
+                <div class="two-box">
+                    <p class="text_header_alt">Completed Courses</p>
+                    <p class="text_body">3</p>
+                </div>
+
+                <div class="two-box">
+                    <p class="text_header_alt">Current Streak</p>
+                    <p class="text_body">7 days</p>
+                </div>
+            </div>
+        <hr>
+            <div class="button-row">
+                <div>
+                    <form action="course_creation.html" method="get">
+                        <button type="submit" class="secondary_button">Create New Course</button>
+                    </form>                  
+                </div>
+
+                <div>
+                    <button class="secondary_button">View All Courses</button>
+                </div>
+
+                <div>
+                    <button class="reject_button">Change Password</button>
+                </div>
+
+                <div>
+                    <button class="reject_button">Delete Account</button>
+                </div>
+            </div>
     </main>
-    <footer class="footer">
-        <nav>
-            <!-- Footer for easy access to information. -->
-            <a href="../info_pages/about_us.html">ABOUT US</a> &nbsp;
-            <a href="../info_pages/faq.html">FAQ</a> &nbsp;
-            <a href="../info_pages/feedback_form.html">FEEDBACK FORM</a> &nbsp;
-            <a href="../info_pages/privacy_policy.html">PRIVACY POLICY</a> &nbsp;
-        </nav>
-    </footer>
 </body>
 </html>

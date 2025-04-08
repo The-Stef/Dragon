@@ -42,3 +42,51 @@
     justify-content: center;
     margin-top: -55px;
 }
+
+.row {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+    margin: 30px;
+}
+
+.button-row {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    gap: 15px;
+    margin: 30px;
+}
+
+.row label {
+    min-width: 80px;
+}
+
+.row div {
+    display: flex;
+    flex: 1;
+    gap: 15px;
+}
+
+.two-box {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    color: white;
+}
+
+.two-box p {
+    margin: 0px;
+}
+
+.row label + div {
+    display: flex;
+    flex: 1;
+    justify-content: center;
+    gap: 15px;
+}
+
+.lower-label {
+    margin-top: 20px;
+}
