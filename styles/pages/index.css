@@ -40,3 +40,7 @@
     text-align: center;
     gap: 20px;
 }
+
+canvas {
+    z-index: 1000;
+}
