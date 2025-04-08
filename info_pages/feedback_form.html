@@ -6,6 +6,7 @@
     <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/button_styles.css">
     <link rel="stylesheet" href="../styles/text_styles.css">
+    <link rel="stylesheet" href="../styles/pages/feedback.css">
     <title>Feedback Form</title>
 </head>
 <body class="body">
@@ -26,30 +27,40 @@
     </header>
     <main class="main">
         <!-- Form to get user feedback about the platform. -->
-        <h2>Thank you!</h2>
-        <p>
-            We are very delighted that you wish to contribute to the constant improvement of our website.<br>
-            You can do so by filling in the form below.
-        </p>
+        <div class="center">
+            <h2 class="text_header">Thank you!</h2>
+        </div>
 
-        <!-- Form action will be changed after database connection. -->
-        <form action="#SUBMIT FEEDBACK" method="post">
-            <label for="#USER EMAIL">Your Email Address:</label><br>
-            <input type="email" id="user_email" name="user_email"><br>
-            
-            <!-- The feedback type is seperated in order display it easily. -->
-            <label for="feedback_type">Feedback Type:</label><br>
-            <select id="feedback_type" name="feedback_type">
-                <option value="general">General Feedback</option>
-                <option value="bug">Bug Report</option>
-                <option value="feature">Feature Request</option>
-            </select><br>
-            
-            <label for="feedback_text">Your Message:</label><br>
-            <textarea id="feedback_text" name="feedback_text" rows="6" cols="40" required placeholder="How can we improve?"></textarea><br>
+        <div class="card">
+            <!-- Form action will be changed after database connection. -->
+            <form action="#SUBMIT FEEDBACK" method="post">
+                <label for="#USER EMAIL">Your Email Address:</label><br>
+                <input type="email" id="user_email" name="user_email"><br>
+                
+                <!-- The feedback type is seperated in order display it easily. -->
+                <label for="feedback_type">Feedback Type:</label><br>
+                <select id="feedback_type" name="feedback_type">
+                    <option value="general">General Feedback</option>
+                    <option value="bug">Bug Report</option>
+                    <option value="feature">Feature Request</option>
+                </select><br>
+                
+                <label for="feedback_text">Your Message:</label><br>
+                <textarea id="feedback_text" name="feedback_text" rows="6" cols="40" required placeholder="How can we improve?"></textarea><br>
 
-            <button type="submit">Submit</button>
-        </form>
+                <div class="center">
+                    <button class="accept_button" type="submit">Submit</button>
+                </div>
+            </form>
+        </div>
+        <br>
+        <div class="center">
+            <div class="column">
+                <p class="text_body">We are very delighted that you wish to contribute to the constant improvement of our website.</p>
+                <p class="text_body">You can do so by filling in the form above.</p>
+            </div>
+        </div>
+
     </main>
     <footer class="footer">
         <!-- Footer for easy access to information. -->
