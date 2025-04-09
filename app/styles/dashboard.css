@@ -10,6 +10,7 @@
 .shiny-blue-container::after {
     content: "";
     position: absolute;
+    border-radius: 15px;
     backdrop-filter: blur(60px);
     background: linear-gradient(
         47deg,
@@ -22,6 +23,7 @@
 }
 
 .blue-container {
+    border-radius: 15px;
     background: linear-gradient(
         47deg,
         #000000,
@@ -34,6 +36,7 @@
 
 .blue-container::after {
     content: "";
+    border-radius: 15px;
     position: absolute;
     backdrop-filter: blur(60px);
     background: linear-gradient(
@@ -88,12 +91,13 @@
 }
 
 .app-container {
+    position: relative;
     box-sizing: border-box;
     padding: 20px;
     background-image: url(/assets/space-background.png);
     background-size: contain;
     width: 100%;
-    height: 100%;
+    flex-grow: 1;
     border-radius: 15px;
     border-width: 1px;
     border-style: solid;
@@ -105,24 +109,43 @@
     height: 100%;
 }
 
+html {
+    box-sizing: border-box;
+    height: 100%;
+    margin: 0;
+    padding: 0; 
+}
+
 body {
+    box-sizing: border-box;
     display: flex;
     background-color: #000000;
     flex-direction: column;
-    margin: 20px;
-    height: 100%;
+    padding: 20px;
+    min-height: 100vh;
     align-items: center;
     justify-content: space-between;
     row-gap: 30px;
     height: auto;
 }
 
-.reading-container {
-    position: relative;
+.progress-container {
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
     width: 20%;
     height: fit-content;
     height: fit-content;
     padding: 20px;
+}
+
+.quiz-container {
+    position: absolute;
+    width: 20%;
+    height: fit-content;
+    height: fit-content;
+    padding: 20px;
+    bottom: 20px;
 }
 
 .reading-container {
@@ -135,6 +158,11 @@ body {
 .small-title {
     margin: 0 0 10px 0;
     font-size: 16px;
+}
+
+.small-text-with-margin {
+    margin: 0 0 10px 0;
+    font-size: 10px;
 }
 
 .small-text {
@@ -159,7 +187,7 @@ body {
 
 .list-item {
     margin: 0;
-    width: 100%;
+    width: -webkit-fill-available;
     border-radius: 15px;
     border-style: solid;
     border-color: #00D9FF;
