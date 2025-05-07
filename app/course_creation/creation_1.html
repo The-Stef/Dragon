@@ -8,17 +8,31 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Zen+Dots&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/styles.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 </head>
 <body>
+    </script>
     <div id="light-blob-1"></div>
     <div id="light-blob-2"></div>
     <div id="light-blob-3"></div>
     <div class="questions-container">
         <p class="question" id="question-1">Hello.</p>
         <p class="question" id="question-2">What would you like to learn?</p>
-        <form action="creation_2.html" class="answer-container">
+        <form action="creation_2.html" name="course_objective" id="questionForm" class="answer-container">
             <input type="text" class="create-text-input" id="create-text-input-1" placeholder="Type here." required>
         </form>
     </div>
+    <script>
+        $(document).ready(() => {
+            $("#questionForm").addEventListener((event) => {
+                event.preventDefault();
+                const itemHandle = $("#questionForm").attr("name");
+                const nextPage = $("#questionForm").attr("action");
+                const input = $(".create-text-input").val();
+                sessionStorage.setItem(itemHandle, input);
+                window.location.href = nextPage;
+            })
+        });
+    </script>
 </body>
 </html>

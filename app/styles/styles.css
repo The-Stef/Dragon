@@ -71,6 +71,14 @@
     margin: 40px;
 }
 
+.answer-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 40px;
+}
+
+
 .create-text-input {
     animation: fadeIn 2s ease-in;
     width: fit-content;
@@ -81,14 +89,21 @@
     font-weight: 300;
     font-style: normal;
     font-size: 2.618em;
-    color: white;
+    color: rgb(163, 163, 163);
     border-top: 0px;
     border-left: 0px;
     border-right: 0px;
-    border-bottom: 2px white solid;
+    border-bottom: 2px rgb(163, 163, 163) solid;
     text-align: center;
     margin: 0 0 20px 0;
+    transition: border-bottom 0.5s ease-out, color 0.5s ease-out;
     padding: 5px;
+}
+
+.create-text-input:focus {
+  outline: none;
+  color: white;
+  border-bottom: 2px rgb(0, 238, 255) solid;
 }
 
 body {

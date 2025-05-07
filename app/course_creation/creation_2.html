@@ -14,9 +14,21 @@
     <div id="light-blob-3"></div>
     <div class="questions-container">
         <p class="question" id="question-3">What are your goals?</p>
-        <form action="creation_3.html" class="answer-container">
+        <form action="creation_3.html" name="user_goals" id="questionForm" class="answer-container">
             <input type="text" class="create-text-input" id="create-text-input-2" placeholder="e.g Career Advancement, Personal Learning" required>
         </form>
     </div>
+    <script>
+        $(document).ready(() => {
+            $("#questionForm").addEventListener((event) => {
+                event.preventDefault();
+                const itemHandle = $("#questionForm").attr("name");
+                const nextPage = $("#questionForm").attr("action");
+                const input = $(".create-text-input").val();
+                sessionStorage.setItem(itemHandle, input);
+                window.location.href = nextPage;
+            })
+        });
+    </script>
 </body>
 </html>
