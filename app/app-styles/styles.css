@@ -91,7 +91,7 @@
     padding: 5px;
 }
 
-body {
+/* body {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,7 +100,7 @@ body {
     background-color: black;
     padding: 35px;
     height: 80vh;
-}
+} */
 
 @keyframes fadeIn {
     0% { opacity: 0; }
