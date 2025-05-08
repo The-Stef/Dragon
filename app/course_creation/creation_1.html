@@ -24,7 +24,7 @@
     </div>
     <script>
         $(document).ready(() => {
-            $("#questionForm").addEventListener((event) => {
+            $("#questionForm").on("submit", (event) => {
                 event.preventDefault();
                 const itemHandle = $("#questionForm").attr("name");
                 const nextPage = $("#questionForm").attr("action");
