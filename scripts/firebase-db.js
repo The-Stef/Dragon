@@ -1,13 +1,21 @@
 import { initializeApp } from "firebase/app";
-import { getDatabase } from "firebase/database";
+import { getFirestore, collection, addDoc } from "firebase/firestore";
 import firebaseConfig from "../config";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
 
-function createCourse(course_id, ) {
-    const database = getDatabase(app);
-    set(ref(db, 'courses/' + course_id), {
-        
-    });    
+async function createCourse(courseName, objective, desiredLength, learningStyle, userGoals) {
+    try {
+        const course = await addDoc(collection(db, "courses"), {
+            course_name: courseName,
+            course_objective: objective,
+            desired_length: desiredLength,
+            learning_style: learningStyle,
+            user_goals: userGoals
+        });
+    } catch (e) {
+        console.error(e);
+    }
 }
