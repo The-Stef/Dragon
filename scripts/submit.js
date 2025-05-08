@@ -1,17 +1,10 @@
-function submitForm(e) {
-    e.preventDefault();
-
-    const hours_free = document.getElementById('create-text-input-4').value;
-    sessionStorage.setItem("hours_free", hours_free);
-    window.location.href = "../dashboard/index.html";
-
-
+function submitForm() {
     const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyB6x6Cdjr3oX4Boti45vo-zs7Fe4XN13z0";
 
     const course_objective = sessionStorage.getItem("course_objective");
     const user_goals = sessionStorage.getItem("user_goals");
     const learning_style = sessionStorage.getItem("learning_style");
-    
+    const hours_free = sessionStorage.getItem("hours_free");
 
     const query = `You are an expert instructional designer.
 
@@ -34,25 +27,29 @@ function submitForm(e) {
     
     2. You should not say anything else besides the JSON.
 
-    1. Divide the curriculum into equal-length blocks that fill the entire timeframe.  
+    3. Divide the curriculum into equal-length blocks that fill the entire timeframe.  
        • If the timeframe ≤ 7 days, use one block per **DAY**.  
        • If the timeframe ≤ 4 weeks (> 7 days), use one block per **WEEK**.  
        • If the timeframe ≤24 months (> 4 weeks), use one block per **MONTH** (rounding up).  
        • If the timeframe >24 months, use one block per **YEAR** (rounding up).
     
-    2. For every block, list the concrete learning tasks.
+    4. For every block, list the concrete learning tasks. 
     
-    3. Use the tag system exactly as follows (case-sensitive).  
-       Replace <PERIOD> with DAY, WEEK, MONTH, or YEAR as determined in step 1.  
-       • One off tasks  
-         [TASK][<PERIOD> X][NOREP]:<task description>
-       • Recurring tasks  
-         [TASK][<PERIOD> X][REP][DAYS|MONTHS|YEARS][<LENGTH>]:<task description>
-         - <LENGTH> uses the format 30M, 1H, 90S, etc.
+    5. Your JSON should contain a list, which has an object for each time period. These objects should contain the fields:
+        • period: This is the period on which the tasks should be done, such as day 1, week 1, month 3 etc. It has the fields:
+            • periodType: This is "DAY", "WEEK", "MONTH", or "YEAR".
+            • number: Which period is it. For Day 1, this field should be 1.
+        • tasks: This is a list. It should contain the task objects described below. 
     
-    4. Do not add any other tags.
+    6. Each task should have contain:
+        • repeat: Whether the task should be repeated over time during the time frame. This is "true" or "false".
+        • frequency: How often the task is repeated. This can be "DAY", "WEEK", "MONTH", "YEAR", or "NA" if the task is not repeated.  
+        • length: How long this task should take. This uses the format 30M, 1H, 90S, etc.. 
+        • description: This is the task description itself.
+    
+    7. Do not add any other fields or modifications.
 
-    5. Tailor the amount and the content of the task depending on the inputs you got, adapt the content to users learning style.
+    8. Tailor the amount and the content of the task depending on the inputs you got, adapt the content to users learning style.
     
     LEVEL OF DETAIL
     ---------------
@@ -67,9 +64,136 @@ function submitForm(e) {
     --------
     *(Treat this as an example only. Replace with actual content.)*
     
-    [TASK][WEEK 1][NOREP]:Set up skating journal and label goal pages
-    [TASK][WEEK 1][REP][DAYS][30M]:Complete dynamic warm-up and balance drills
-    [TASK][WEEK 2][NOREP]:Record final skills video and review progress
+    [
+    {
+        "period": {
+        "periodType": "WEEK",
+        "number": 1
+        },
+        "tasks": [
+        {
+            "repeat": true,
+            "frequency": "DAY",
+            "length": "30M",
+            "description": "Watch animated video introducing the Rubik’s Cube notation and structure."
+        },
+        {
+            "repeat": true,
+            "frequency": "DAY",
+            "length": "30M",
+            "description": "Practice identifying and naming cube pieces using color-coded diagrams."
+        },
+        {
+            "repeat": false,
+            "frequency": "NA",
+            "length": "1H",
+            "description": "Follow a visual step-by-step tutorial to solve the white cross."
+        },
+        {
+            "repeat": false,
+            "frequency": "NA",
+            "length": "1H",
+            "description": "Complete your first full beginner’s method solve with a video walkthrough."
+        }
+        ]
+    },
+    {
+        "period": {
+        "periodType": "WEEK",
+        "number": 2
+        },
+        "tasks": [
+        {
+            "repeat": true,
+            "frequency": "DAY",
+            "length": "1H",
+            "description": "Practice solving using beginner’s method with visual aid until you can solve without it."
+        },
+        {
+            "repeat": true,
+            "frequency": "DAY",
+            "length": "15M",
+            "description": "Use online simulator to reinforce algorithm visualization without a physical cube."
+        },
+        {
+            "repeat": false,
+            "frequency": "NA",
+            "length": "45M",
+            "description": "Watch video explaining F2L (First Two Layers) and compare it to beginner’s method."
+        },
+        {
+            "repeat": false,
+            "frequency": "NA",
+            "length": "45M",
+            "description": "Try solving first pairs using F2L from slow-motion visuals."
+        }
+        ]
+    },
+    {
+        "period": {
+        "periodType": "WEEK",
+        "number": 3
+        },
+        "tasks": [
+        {
+            "repeat": true,
+            "frequency": "DAY",
+            "length": "1H",
+            "description": "Practice full solve using F2L with visual breakdown per step."
+        },
+        {
+            "repeat": true,
+            "frequency": "DAY",
+            "length": "30M",
+            "description": "Drill OLL (Orientation of Last Layer) cases using visual flashcards and mirror cube viewer."
+        },
+        {
+            "repeat": true,
+            "frequency": "DAY",
+            "length": "15M",
+            "description": "Use timer app to track solve times and note sticking points."
+        },
+        {
+            "repeat": false,
+            "frequency": "NA",
+            "length": "1H",
+            "description": "Learn and practice PLL (Permutation of Last Layer) with annotated slow-motion videos."
+        }
+        ]
+    },
+    {
+        "period": {
+        "periodType": "WEEK",
+        "number": 4
+        },
+        "tasks": [
+        {
+            "repeat": true,
+            "frequency": "DAY",
+            "length": "1H",
+            "description": "Drill full CFOP method solves using visual aids, aiming for consistency and speed."
+        },
+        {
+            "repeat": true,
+            "frequency": "DAY",
+            "length": "30M",
+            "description": "Record solves and visually analyze turning efficiency and finger tricks."
+        },
+        {
+            "repeat": true,
+            "frequency": "DAY",
+            "length": "30M",
+            "description": "Watch pro solve videos and mimic finger tricks and flow visually."
+        },
+        {
+            "repeat": false,
+            "frequency": "NA",
+            "length": "1H",
+            "description": "Create a personal improvement plan based on visual review of recorded solves."
+        }
+        ]
+    }
+    ]
     
     PLEASE BEGIN THE CURRICULUM AFTER THIS LINE  
     ===========================================
@@ -96,6 +220,4 @@ function submitForm(e) {
     })
 }
 
-var myform = document.getElementById("questionForm");
-
-myform.addEventListener("submit", submitForm);
+submitForm();
