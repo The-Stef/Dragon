@@ -1,12 +1,17 @@
-export function submitForm(e) {
+function submitForm(e) {
     e.preventDefault();
+
+    const hours_free = document.getElementById('create-text-input-4').value;
+    sessionStorage.setItem("hours_free", hours_free);
+    window.location.href = "../dashboard/index.html";
+
 
     const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyB6x6Cdjr3oX4Boti45vo-zs7Fe4XN13z0";
 
     const course_objective = sessionStorage.getItem("course_objective");
     const user_goals = sessionStorage.getItem("user_goals");
     const learning_style = sessionStorage.getItem("learning_style");
-    const hours_free = document.getElementById('hours_free').value;
+    
 
     const query = `You are an expert instructional designer.
 
@@ -25,6 +30,10 @@ export function submitForm(e) {
     
     OUTPUT REQUIREMENTS
     -------------------
+    1. You should provide the result in JSON.
+    
+    2. You should not say anything else besides the JSON.
+
     1. Divide the curriculum into equal-length blocks that fill the entire timeframe.  
        • If the timeframe ≤ 7 days, use one block per **DAY**.  
        • If the timeframe ≤ 4 weeks (> 7 days), use one block per **WEEK**.  
@@ -73,7 +82,7 @@ export function submitForm(e) {
             "Content-Type": "application/json",
         },
         body: JSON.stringify({ "contents": [{
-                "parts": [{"text": "Explain how AI Works"}]
+                "parts": [{"text": `${query}`}]
             }] 
         })            
     }).then(response => {
