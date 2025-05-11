@@ -1,12 +1,12 @@
-import { initializeApp } from "firebase/app";
-import { getFirestore, collection, addDoc } from "firebase/firestore";
-import firebaseConfig from "../config";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-app.js";
+import { getFirestore, collection, addDoc } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore-compat.js";
+import firebaseConfig from "../config.js";
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-async function createCourse(courseName, objective, desiredLength, learningStyle, userGoals) {
+export async function createCourse(courseName, objective, desiredLength, learningStyle, userGoals) {
     try {
         const course = await addDoc(collection(db, "courses"), {
             course_name: courseName,

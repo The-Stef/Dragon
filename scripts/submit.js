@@ -1,3 +1,5 @@
+import { createCourse } from "./firebase-db.js";
+
 function submitForm() {
     const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyB6x6Cdjr3oX4Boti45vo-zs7Fe4XN13z0";
 
@@ -36,6 +38,7 @@ function submitForm() {
     4. For every block, list the concrete learning tasks. 
     
     5. Your JSON should contain a list, which has an object for each time period. These objects should contain the fields:
+        • courseName: A very short name that summarizes the course.
         • period: This is the period on which the tasks should be done, such as day 1, week 1, month 3 etc. It has the fields:
             • periodType: This is "DAY", "WEEK", "MONTH", or "YEAR".
             • number: Which period is it. For Day 1, this field should be 1.
@@ -216,7 +219,9 @@ function submitForm() {
 
         return response.json();
     }).then(response => {
-        console.log(response);
+
+
+        createCourse()
     })
 }
 
