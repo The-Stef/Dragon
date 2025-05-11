@@ -1,4 +1,4 @@
-import { createCourse } from "./firebase-db.js";
+import { createCourse } from "./firebase-db.js"
 
 function submitForm() {
     const url = "https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=AIzaSyB6x6Cdjr3oX4Boti45vo-zs7Fe4XN13z0";
@@ -218,10 +218,17 @@ function submitForm() {
         }
 
         return response.json();
-    }).then(response => {
+    }).then(async response => {
+        // Remove extra, non-json text
+        const curriculum = response.candidates[0].content.parts[0].text
+        const sanitized_curriculum = curriculum.replace(/```json|```/g, "").trim();
 
-
-        createCourse()
+        const title = "How To : " + course_objective;
+        try {
+            await createCourse(title, course_objective, hours_free, learning_style, user_goals, sanitized_curriculum); }
+        catch(e) {
+            console.log("ERROR: " + e);
+        }
     })
 }
 
