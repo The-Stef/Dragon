@@ -1,5 +1,5 @@
 import { auth, db } from "./firebase-init.js";
-import { collection, where, addDoc, query, getDocs } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
+import { collection, where, addDoc, query, getDocs, doc, getDoc} from "https://www.gstatic.com/firebasejs/11.5.0/firebase-firestore.js";
 import { onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.5.0/firebase-auth.js";
 
 let currentUID = null;
@@ -13,7 +13,15 @@ onAuthStateChanged(auth, (user) => {
         currentUID = user.uid;
         console.log("User authenticated:", currentUID);
 
-        getCourseList(user.uid);
+        // Only fetch courses on course list page
+        if (document.getElementById("course-list")) {
+            getCourseList(user.uid);
+        }
+
+        // Only fetch user info on the profile page
+        if (document.querySelector(".username-container")) {
+            getUserInfo(user.uid);
+        }
         } else {
             console.warn("No authenticated user. Redirecting to login.");
             window.location.href = "../auth_pages/login_page.html";
@@ -70,6 +78,29 @@ async function getCourseList() {
 
             courseListContainer.appendChild(card);
         });
+    } catch(e) {
+        console.log("ERROR: " + e);
+    }
+}
+
+async function getUserInfo(uid) {
+    try{
+        const docRef = doc(db, "users", uid);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            const userData = docSnap.data();
+            console.log("User data:", userData);
+
+            // Populate the DOM with user data
+            document.querySelector(".username-container .text_header").textContent = userData.username;
+            document.querySelector(".email-container .text_body").textContent = userData.email;
+            document.querySelector(".two-box .text_body").textContent = userData.userType;
+            document.getElementById("first-name").value = userData.firstName || "";
+            document.getElementById("last-name").value = userData.lastName || "";
+        } else {
+            console.warn("No user document found.");
+        }
     } catch(e) {
         console.log("ERROR: " + e);
     }
