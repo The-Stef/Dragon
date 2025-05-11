@@ -1,0 +1,23 @@
+.course-card {
+    border: 1px solid #ccc;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    border-radius: 8px;
+    background-color: black;
+    box-shadow: 1px 1px 5px rgba(0,0,0,0.1);
+}
+
+.course-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.row-course-elems {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    gap: 15px;
+    margin: 30px;
+}
