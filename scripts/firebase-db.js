@@ -12,6 +12,7 @@ async function createCourse(courseName, objective, desiredLength, learningStyle,
             curriculum: curriculum
         });
         console.log("Course created! ID: ", course.id);
+        window.location.href = "../../acc_pages/user_dashboard.html"
         return course.id;
     } catch (e) {
         console.log("ERROR:");
