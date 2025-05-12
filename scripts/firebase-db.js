@@ -22,10 +22,29 @@ onAuthStateChanged(auth, (user) => {
         if (document.querySelector(".username-container")) {
             getUserInfo(user.uid);
         }
+
+        // Course information on dashboard
+        if (document.getElementById("course-indicator")) {
+            const searchParams = new URLSearchParams(window.location.search);
+            let course_id = searchParams.get("id");
+            getPeriod(course_id);
+        }
+
+        if (document.querySelector(".course-info-container")) {
+            const searchParams = new URLSearchParams(window.location.search);
+            let course_id = searchParams.get("id");
+            getCourse(course_id);
+
+            document.querySelector(".course-start-button").addEventListener("click", () => {
+                window.location.href = `../app/dashboard/index.html?id=${course_id}`;
+            });
+        }
+
         } else {
             console.warn("No authenticated user. Redirecting to login.");
             window.location.href = "../auth_pages/login_page.html";
         }
+
     } catch(e) {
         console.log("ERROR: " + e);
     }
@@ -63,6 +82,9 @@ async function getCourseList() {
     try {
         if (querySnapshot.empty) {
             courseListContainer.innerHTML = "<p>No courses found.</p>";
+            courseListContainer.innerHTML = "<div><form action=\"../app/course_creation/creation_1.html\" method=\"get\"> \
+                        <button type=\"submit\" class=\"secondary_button\">Create New Course</button> \
+                    </form></div>";
             return;
         }
 
@@ -73,7 +95,7 @@ async function getCourseList() {
             card.querySelector(".course-name").textContent = data.course_name;
 
             card.querySelector(".view-course-button").addEventListener("click", () => {
-                window.location.href = 'course_detail.html?id=${doc.id}';
+                window.location.href = `course_detail.html?id=${doc.id}`;
             });
 
             courseListContainer.appendChild(card);
@@ -109,6 +131,87 @@ async function getUserInfo(uid) {
             document.querySelector(".two-box .text_body").textContent = userData.userType;
             document.getElementById("first-name").value = userData.firstName || "";
             document.getElementById("last-name").value = userData.lastName || "";
+        } else {
+            console.warn("No user document found.");
+        }
+    } catch(e) {
+        console.log("ERROR: " + e);
+    }
+}
+
+async function getCourse(course_id) {
+    try{
+        const docRef = doc(db, "courses", course_id);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            const courseData = docSnap.data();
+            console.log("Course data:", courseData);
+
+            const courseName = courseData.course_name;
+            const curriculum = courseData.curriculum;
+        
+            let periodName;
+
+            for (const period of curriculum) {
+                if (period.complete === "false") {
+                    periodName = period.periodName;
+                    break;
+                }
+            }
+
+            console.log("am here!");
+            document.querySelector("#course-name").innerHTML = "Course: " + courseName || "";
+            document.querySelector("#current-period").innerHTML = "Current Period: " + periodName || "";
+        } else {
+            console.warn("No user document found.");
+        }
+    } catch(e) {
+        console.log("ERROR: " + e);
+    }
+}
+
+async function getPeriod(course_id) {
+    try{
+        const docRef = doc(db, "courses", course_id);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            const courseData = docSnap.data();
+            console.log("Course data:", courseData);
+
+            const courseName = courseData.course_name;
+            const curriculum = courseData.curriculum;
+        
+            let periodName;
+
+            for (const period of curriculum) {
+                if (period.complete === "false") {
+                    periodName = period.periodName;
+                    var task_id = 0;
+                    for (const task of period.tasks) {
+                        if (task.complete != "true") {
+                            document.getElementById("task-list").innerHTML = document.getElementById("task-list").innerHTML + `<div class="list-item">
+                                <a href="../utils/generate_reading.html">
+                                    <p class="normal-white small-text inter"><span class="shiny-blue small-text zen-dots">${task_id + 1}.</span> <span id="task-${task_id}">${task.description}</span></p>
+                                </a>
+                            </div>
+                            `;
+
+                        task_id += 1;
+                        }
+                    }
+
+                    break;
+                }
+            }
+
+            document.querySelector("#amount-readings").innerHTML = "You have " + (task_id) + " tasks today." || "";
+            document.querySelector("#course-name").innerHTML = " " + courseName || "";
+            document.querySelector("#level-indicator").innerHTML = periodName || "";
+
+
+
         } else {
             console.warn("No user document found.");
         }

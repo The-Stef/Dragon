@@ -81,6 +81,10 @@
     display: none;
 }
 
+a {
+    text-decoration: none;
+}
+
 .top-bar {
     box-sizing: border-box;
     display: flex;

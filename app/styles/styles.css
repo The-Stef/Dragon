@@ -64,6 +64,24 @@
     margin: 0 0 20px 0;
 }
 
+.course-info-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.large-text {
+    animation: fadeIn 1.5s ease-in;
+    font-family: "Inter", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 2.618em;
+    color: white;
+    text-align: center;
+    margin: 0 0 20px 0;
+}
+
 .answer-container {
     display: flex;
     align-items: center;

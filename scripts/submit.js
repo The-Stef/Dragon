@@ -37,17 +37,22 @@ function submitForm() {
     
     4. For every block, list the concrete learning tasks. 
     
-    5. Your JSON should contain a list, which has an object for each time period. These objects should contain the fields:
-        • courseName: A very short name that summarizes the course.
-        • period: This is the period on which the tasks should be done, such as day 1, week 1, month 3 etc. It has the fields:
-            • periodType: This is "DAY", "WEEK", "MONTH", or "YEAR".
-            • number: Which period is it. For Day 1, this field should be 1.
+    5. Your JSON should should contain:
+        • courseName: A short string that summarizes what the course is about.
+        • curriculum: which is a list that will contain the curriculum.
+
+    6 The curriculum list contains multiple objects, one for each time period. These objects should contain the fields:
+        • complete: Whether the period is completed. For you, this should always be "false".
+        • periodName: A very short name that summarizes what user will do in this time period.
+        • periodType: This is "DAY", "WEEK", "MONTH", or "YEAR".
+        • number: Which period is it. For example for Day 1, this field should be 1.
         • tasks: This is a list. It should contain the task objects described below. 
     
     6. Each task should have contain:
         • repeat: Whether the task should be repeated over time during the time frame. This is "true" or "false".
         • frequency: How often the task is repeated. This can be "DAY", "WEEK", "MONTH", "YEAR", or "NA" if the task is not repeated.  
         • length: How long this task should take. This uses the format 30M, 1H, 90S, etc.. 
+        • complete: Whether the task is completed. For you, this should always be "false".
         • description: This is the task description itself.
     
     7. Do not add any other fields or modifications.
@@ -70,6 +75,7 @@ function submitForm() {
     [
     {
         "period": {
+        "periodName": "Rubik's Cube Basics"
         "periodType": "WEEK",
         "number": 1
         },
@@ -102,6 +108,7 @@ function submitForm() {
     },
     {
         "period": {
+        "periodName": "Beginner Tricks";
         "periodType": "WEEK",
         "number": 2
         },
@@ -134,6 +141,7 @@ function submitForm() {
     },
     {
         "period": {
+        "periodName": "Solving Cube Fully",
         "periodType": "WEEK",
         "number": 3
         },
@@ -166,6 +174,7 @@ function submitForm() {
     },
     {
         "period": {
+        "periodName": "Mastering the Cube"
         "periodType": "WEEK",
         "number": 4
         },
@@ -222,10 +231,12 @@ function submitForm() {
         // Remove extra, non-json text
         const curriculum = response.candidates[0].content.parts[0].text
         const sanitized_curriculum = curriculum.replace(/```json|```/g, "").trim();
-
-        const title = "How To : " + course_objective;
+        const json_curriculum = JSON.parse(sanitized_curriculum);
+    
+        const title = json_curriculum.courseName;
         try {
-            await createCourse(title, course_objective, hours_free, learning_style, user_goals, sanitized_curriculum); }
+            await createCourse(title, course_objective, hours_free, learning_style, user_goals, json_curriculum.curriculum);
+        }
         catch(e) {
             console.log("ERROR: " + e);
         }

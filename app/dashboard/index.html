@@ -19,19 +19,17 @@
 </head>
 <body>
     <div class="top-bar shiny-blue-container">
-        <p class="shiny-blue zen-dots" id="level-indicator">Level 1</p>
-        <p class="shiny-white zen-dots" id="course-indicator"><span class="shiny-blue">Course:</span> AI Prompt Engineering</p>
+        <p class="shiny-blue zen-dots" id="level-indicator"></p>
+        <p class="shiny-white zen-dots" id="course-indicator"><span class="shiny-blue">Course:</span><span id="course-name"></span></p>
         <img class="logo" src="../../assets/SpaceLearnLogo.png">
     </div>
     <main class="app-container">
         <div class="reading-container shiny-blue-container">
             <div class="text-container">
-                <p class="shiny-blue small-title zen-dots">Readings</p>
-                <p class="normal-white small-text inter">You have 1 readings today.</p>
+                <p class="shiny-blue small-title zen-dots">Tasks</p>
+                <p class="normal-white small-text inter" id="amount-readings"></p>
             </div>
-            <div class="list-container">
-                <div class="list-item"><a><p class="normal-white small-text inter"><span class="shiny-blue small-text zen-dots">1.</span> Read me.</p></a></div>
-                <div class="list-item"><a href="#"><p class="normal-white small-text inter"><span class="shiny-blue small-text zen-dots">1.</span> Read me.</p></a></div>
+            <div class="list-container" id="task-list">
             </div>
         </div>
         <div class="quiz-container shiny-blue-container">
@@ -54,5 +52,6 @@
             </div>
         </div>
     </main>
+    <script type="module" src="../../scripts/firebase-db.js"></script>
 </body> 
 </html>
