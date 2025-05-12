@@ -13,47 +13,23 @@
     <link rel="stylesheet" href="../../styles/pages/index.css">
 </head>
 <body>
-    <div id="light-blob-1"></div>
-    <div id="light-blob-2"></div>
-    <div id="light-blob-3"></div>
     <div class="top-bar list-item">
         <div class="course-info">
             <span class="shiny-blue zen-dots">Course:</span>
-            <span class="shiny-white inter">AI Prompt Engineering</span>
+            <span class="shiny-white inter course-name"></span>
         </div>
-        <div class="shiny-blue inter">Prompt Engineering Fundamentals</div>
         <img class="logo" src="../../assets/SpaceLearnLogo.png" alt="SpaceLearn Logo">
     </div>
-    <div style="background-color: black;" class="shiny-blue-container no-after">
-        <h2 class="shiny-blue zen-dots">What is a Prompt?</h2>
-        <p class="normal-white inter">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
-            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. 
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+    <div style="background-color: black;" class="shiny-blue-container no-after required-reading-container">
+        <h2 class="shiny-blue zen-dots">Your Task</h2>
+        <p class="normal-white inter" id="task-description">
         </p>
         <div class="recommended-reading">
             <h2 class="shiny-blue zen-dots">Recommended Reading</h2>
             <div class="reading-list">
-                <div class="reading-item shiny-blue-container-no-dim">
-                    <span>1.</span>
-                    <button class="primary_button">Done</button>
-                </div>
-                <div class="reading-item shiny-blue-container-no-dim">
-                    <span>2.</span>
-                    <button class="primary_button">Done</button>
-                </div>
-                <div class="reading-item shiny-blue-container-no-dim">
-                    <span>3.</span>
-                    <button class="primary_button">Done</button>
-                </div>
-                <div class="reading-item shiny-blue-container-no-dim">
-                    <span>4.</span>
-                    <button class="primary_button">Done</button>
-                </div>
             </div>
-            <button class="accept_button">Complete Lesson</button>
         </div>
     </div>
+    <script type="module" src="../../scripts/firebase-db.js"></script>
 </body>
 </html>

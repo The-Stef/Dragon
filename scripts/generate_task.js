@@ -16,8 +16,8 @@ function generateTask() {
 
         ## INPUTS
 
-        - Course Description: <DESCRIPTION>
-        - Task: <TASK>
+        - Course Description: ${sessionStorage.getItem("courseName")}
+        - Task: ${sessionStorage.getItem("task")}
 
         ## OUTPUT REQUIREMENTS
 
@@ -79,12 +79,11 @@ function generateTask() {
     }).then(async response => {
         // Remove extra, non-json text
         const tasks = response.candidates[0].content.parts[0].text
-        const sanitized_tasks = curriculum.replace(/```json|```/g, "").trim();
-        const json_tasks = JSON.parse(sanitized_curriculum);
+        const json_tasks = tasks.replace(/```json|```/g, "").trim();
     
         try {
-            sessionStorage.setItem(tasks, json_tasks);
-            window.location.href("../course_components/required_reading.html");
+            sessionStorage.setItem("readings", json_tasks);
+            window.location.href = "../course_components/required_reading.html";
         }
         catch(e) {
             console.log("ERROR: " + e);

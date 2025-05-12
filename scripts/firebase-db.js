@@ -23,6 +23,12 @@ onAuthStateChanged(auth, (user) => {
             getUserInfo(user.uid);
         }
 
+        // Only fetch courses on course list page
+        if (document.querySelector(".recommended-reading")) {
+            setReadingList();
+        }
+
+
         // Course information on dashboard
         if (document.getElementById("course-indicator")) {
             const searchParams = new URLSearchParams(window.location.search);
@@ -182,40 +188,151 @@ async function getPeriod(course_id) {
 
             const courseName = courseData.course_name;
             const curriculum = courseData.curriculum;
+            const courseLength = courseData.desired_length;
         
             let periodName;
 
             for (const period of curriculum) {
                 if (period.complete === "false") {
                     periodName = period.periodName;
-                    var task_id = 0;
-                    for (const task of period.tasks) {
-                        if (task.complete != "true") {
-                            document.getElementById("task-list").innerHTML = document.getElementById("task-list").innerHTML + `<div class="list-item">
-                                <a href="../utils/generate_reading.html">
-                                    <p class="normal-white small-text inter"><span class="shiny-blue small-text zen-dots">${task_id + 1}.</span> <span id="task-${task_id}">${task.description}</span></p>
-                                </a>
+                    const tasks = period.tasks;
+
+                    const task_stringified = tasks.map(task => `<div class="list-item">
+                                    <a class="task">
+                                        <p class="normal-white small-text inter">${task.description}</span></p>
+                                    </a>
+                                </div>`)
+
+                    document.querySelector(".app-container").innerHTML += `<div class="reading-container shiny-blue-container">
+                        <div class="text-container">
+                            <p class="shiny-blue small-title zen-dots">${period.periodType} ${period.number}</p>
+                            <p class="shiny-blue small-title zen-dots">${period.periodName}</p>
+                            <p class="normal-white small-text-margin inter" id="amount-readings">This period has ${period.tasks.length} tasks.</p>
+                            <div class="list-container" id="task-list">
+                            ${task_stringified.join("\n")}
                             </div>
-                            `;
-
-                        task_id += 1;
-                        }
-                    }
-
-                    break;
+                        </div>
+                    </div>
+                    `;
                 }
             }
 
-            document.querySelector("#amount-readings").innerHTML = "You have " + (task_id) + " tasks today." || "";
+            var task_elements = document.getElementsByClassName("task");
+
+            function generate_reading(course_name, task, href) {
+                sessionStorage.setItem("courseName", course_name);
+                sessionStorage.setItem("task", task);
+                window.location.href = href;
+            }
+
+            for (const task of task_elements) {
+                task.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    generate_reading(courseName, task.textContent, "../utils/generate_reading.html");
+                });
+            }
+
+            document.querySelector("#amount-readings").innerHTML = "" || "";
             document.querySelector("#course-name").innerHTML = " " + courseName || "";
-            document.querySelector("#level-indicator").innerHTML = periodName || "";
-
-
+            document.querySelector("#level-indicator").innerHTML = courseLength || "";
 
         } else {
             console.warn("No user document found.");
         }
     } catch(e) {
+        console.log("ERROR: " + e);
+    }
+}
+
+async function getReading(course_id) {
+    try{
+        const docRef = doc(db, "courses", course_id);
+        const docSnap = await getDoc(docRef);
+
+        if (docSnap.exists()) {
+            const courseData = docSnap.data();
+            console.log("Course data:", courseData);
+
+            const courseName = courseData.course_name;
+            const curriculum = courseData.curriculum;
+            const courseLength = courseData.desired_length;
+        
+            let periodName;
+
+            for (const period of curriculum) {
+                if (period.complete === "false") {
+                    periodName = period.periodName;
+                    const tasks = period.tasks;
+
+                    const task_stringified = tasks.map(task => `<div class="list-item">
+                                    <a class="task">
+                                        <p class="normal-white small-text inter">${task.description}</span></p>
+                                    </a>
+                                </div>`)
+
+                    document.querySelector(".app-container").innerHTML += `<div class="reading-container shiny-blue-container">
+                        <div class="text-container">
+                            <p class="shiny-blue small-title zen-dots">${period.periodType} ${period.number}</p>
+                            <p class="shiny-blue small-title zen-dots">${period.periodName}</p>
+                            <p class="normal-white small-text-margin inter" id="amount-readings">This period has ${period.tasks.length} tasks.</p>
+                            <div class="list-container" id="task-list">
+                            ${task_stringified.join("\n")}
+                            </div>
+                        </div>
+                    </div>
+                    `;
+                }
+            }
+
+            var task_elements = document.getElementsByClassName("task");
+
+            function generate_reading(course_name, task, href) {
+                sessionStorage.setItem("courseName", course_name);
+                sessionStorage.setItem("task", task);
+                window.location.href = href;
+            }
+
+            for (const task of task_elements) {
+                task.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    generate_reading(courseName, task.textContent, "../utils/generate_reading.html");
+                });
+            }
+
+            document.querySelector("#amount-readings").innerHTML = "" || "";
+            document.querySelector("#course-name").innerHTML = " " + courseName || "";
+            document.querySelector("#level-indicator").innerHTML = courseLength || "";
+
+        } else {
+            console.warn("No user document found.");
+        }
+    } catch(e) {
+        console.log("ERROR: " + e);
+    }
+}
+
+async function setReadingList() {
+    try {
+        let task = sessionStorage.getItem("task");
+        let readings = JSON.parse(sessionStorage.getItem("readings"));
+
+        document.querySelector(".course-name").innerHTML = sessionStorage.getItem("courseName");
+        document.getElementById("task-description").innerHTML = sessionStorage.getItem("task");
+
+        const readings_stringified = readings.map(reading => 
+            `
+            <div class="reading-item shiny-blue-container-no-dim">
+                <p class="normal-white inter">${reading.title}</p>
+                <a href="${reading.url}">
+                    <button class="primary_button">Read</button>
+                </a>
+            </div>
+            `
+        )
+
+        document.querySelector(".reading-list").innerHTML += readings_stringified.join("\n");
+    }   
+    catch(e) {
         console.log("ERROR: " + e);
     }
 }
