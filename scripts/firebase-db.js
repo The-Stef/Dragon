@@ -93,6 +93,17 @@ async function getUserInfo(uid) {
             console.log("User data:", userData);
 
             // Populate the DOM with user data
+            const creationDate = userData.createdAt?.toDate?.();
+            if (creationDate) {
+                const options = { year: 'numeric', month: 'short' };
+                const formattedDate = creationDate.toLocaleDateString('en-US', options);
+
+                const memberSince = document.getElementById("the_date_itself");
+                if (memberSince) {
+                    memberSince.textContent = formattedDate;
+                }
+            }
+
             document.querySelector(".username-container .text_header").textContent = userData.username;
             document.querySelector(".email-container .text_body").textContent = userData.email;
             document.querySelector(".two-box .text_body").textContent = userData.userType;
